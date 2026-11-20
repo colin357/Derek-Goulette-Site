@@ -1,0 +1,442 @@
+<title>Derek Goulette Rainbow Row</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Concept: the site is a stroll down Rainbow Row. Vertical scroll walks you sideways
+   down a street of pastel Charleston houses; each house is a section, knock to open.
+   Charleston green shutters, iron balconies, gas lanterns, cobblestones, a historic plaque footer.
+   Single deliberate daylight world. */
+:root{
+  --sky-1:#bfe0ef; --sky-2:#eaf5f6; --ink:#1d2622; --ch-green:#1f2a24; --stone:#8d8a83; --walk:#d9d3c7;
+  --pink:#f2b8c0; --yellow:#f7dc8c; --mint:#b9e0c9; --blue:#aecdea; --lilac:#cdbde3; --peach:#f6c49b; --cream:#f2ead8; --rasp:#c2496b; --sage:#c9d6a8;
+  --gold:#c9a24a;
+  --display:"Young Serif",Georgia,serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --hs:url("data:image/jpeg;base64,__IMG__");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--sky-2);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:hidden}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rasp);outline-offset:3px}
+.in{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;font-family:var(--body);transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 4px 0 var(--ink)}
+.btn.alt{background:transparent;color:var(--ink)}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(234,245,246,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--sky-2)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.sign{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;background:var(--ch-green);color:#fff;padding:7px 14px 6px;border-radius:4px;box-shadow:inset 0 0 0 2px var(--ch-green),inset 0 0 0 3px rgba(255,255,255,.7)}
+.sign b{font-family:var(--display);font-weight:400;font-size:19px;line-height:1.1}
+.sign small{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links a{text-decoration:none;font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px}
+.links a:nth-child(1){background:var(--pink)}.links a:nth-child(2){background:var(--yellow)}.links a:nth-child(3){background:var(--mint)}.links a:nth-child(4){background:var(--blue)}
+
+/* Hero */
+.hero{position:relative;background:linear-gradient(180deg,var(--sky-1),var(--sky-2));padding-block:70px 40px;overflow:hidden}
+.cloud{position:absolute;height:36px;border-radius:40px;background:#fff;opacity:.85;animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:50px;height:50px;left:18px;top:-24px}.cloud::after{width:36px;height:36px;left:56px;top:-14px}
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end}
+.hero .mono{color:#3c5a66;margin-bottom:18px;display:block}
+.hero h1{font-family:var(--display);font-size:clamp(50px,8.4vw,124px);line-height:.92;letter-spacing:-.02em}
+.hero h1 .c i{font-style:normal}
+.hero h1 .c b:nth-child(7n+1){color:#d0607c}.hero h1 .c b:nth-child(7n+2){color:#d9a520}.hero h1 .c b:nth-child(7n+3){color:#3e9a6b}.hero h1 .c b:nth-child(7n+4){color:#4b84c2}.hero h1 .c b:nth-child(7n+5){color:#8d6cc0}.hero h1 .c b:nth-child(7n+6){color:#e0874a}.hero h1 .c b:nth-child(7n+7){color:#c2496b}
+.hero-side{display:grid;gap:20px;padding-bottom:10px}
+.hero-side p{font-size:19px;max-width:36ch}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.walk-hint{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-top:36px;color:#3c5a66}
+.walk-hint i{display:inline-block;width:46px;height:2px;background:currentColor;position:relative;animation:nudge 1.6s ease-in-out infinite}
+.walk-hint i::after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid currentColor;border-block:5px solid transparent}
+@keyframes nudge{50%{transform:translateX(8px)}}
+
+/* The street */
+.street-scroller{position:relative;height:calc(var(--len,4000px))}
+.street-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,var(--sky-2) 0%,#f6f3ea 70%)}
+.street-meta{position:absolute;top:84px;left:0;right:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.street-meta h2{font-family:var(--display);font-size:clamp(28px,3.6vw,46px)}
+.street-meta .mono{color:#5b6b64}
+.progress{height:4px;background:rgba(29,38,34,.12);border-radius:4px;margin-top:10px;width:100%;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d0607c,#d9a520,#3e9a6b,#4b84c2,#8d6cc0,#e0874a);border-radius:4px}
+.track{display:flex;align-items:flex-end;gap:0;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:40vw;will-change:transform}
+.house{--h:430px;position:relative;width:300px;flex:none;height:var(--h);background:var(--c);
+  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 1px,transparent 1px 9px);
+  border-left:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:center;padding:42px 26px 0}
+.house::before{content:"";position:absolute;left:-8px;right:-8px;top:-18px;height:22px;background:var(--c);filter:brightness(.92);box-shadow:inset 0 -5px 0 rgba(255,255,255,.55);clip-path:var(--cap,polygon(0 100%,0 30%,100% 30%,100% 100%))}
+.house.gable::before{--cap:polygon(0 100%,8% 30%,42% 30%,50% 0,58% 30%,92% 30%,100% 100%);height:36px;top:-32px}
+.house.step::before{--cap:polygon(0 100%,0 55%,25% 55%,25% 25%,75% 25%,75% 55%,100% 55%,100% 100%);height:34px;top:-30px}
+.house .num{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;letter-spacing:.14em;background:rgba(255,255,255,.7);padding:2px 8px;border-radius:3px}
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 30px;width:100%}
+.win{height:64px;background:linear-gradient(160deg,#dbe9f2,#9fb8c8);border:4px solid #fbfbf8;position:relative;box-shadow:0 3px 0 rgba(0,0,0,.08)}
+.win::before,.win::after{content:"";position:absolute;top:-4px;bottom:-4px;width:14px;background:repeating-linear-gradient(0deg,var(--ch-green) 0 3px,#2c3a32 3px 5px)}
+.win::before{left:-18px}.win::after{right:-18px}
+.win.portrait{background:var(--hs) center 15%/cover}
+.balcony{width:calc(100% + 20px);height:22px;margin:-6px 0 14px;border-top:4px solid var(--ch-green);background:repeating-linear-gradient(90deg,var(--ch-green) 0 2px,transparent 2px 12px);opacity:.92}
+.plaque{margin-top:auto;margin-bottom:12px;background:rgba(255,255,255,.88);border-radius:6px;padding:14px 16px;text-align:center;display:grid;gap:4px;width:100%;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.plaque h3{font-family:var(--display);font-size:24px;line-height:1.05}
+.plaque p{font-size:13.5px;color:#46524d}
+.door-row{display:flex;align-items:flex-end;justify-content:center;gap:16px;width:100%}
+.lantern{width:14px;height:24px;background:linear-gradient(#ffe7a3,#f2b84b);border:2px solid var(--ch-green);border-radius:3px 3px 1px 1px;margin-bottom:62px;box-shadow:0 0 18px 6px rgba(255,210,120,.45);animation:flicker 3s ease-in-out infinite}
+@keyframes flicker{50%{box-shadow:0 0 12px 4px rgba(255,210,120,.3)}}
+.door{width:78px;height:118px;position:relative;perspective:500px;background:#2a1d14;border-radius:39px 39px 0 0;border:4px solid #fbfbf8;border-bottom:0;cursor:pointer;padding:0}
+.door .leaf{position:absolute;inset:0;border-radius:35px 35px 0 0;background:var(--d,var(--ch-green));transform-origin:left;transition:transform .7s cubic-bezier(.3,.8,.3,1);
+  background-image:linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12)),linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12));
+  background-size:24px 30px,24px 30px;background-position:12px 30px,12px 70px;background-repeat:no-repeat;display:grid;place-items:end center}
+.door .leaf::after{content:"";position:absolute;right:12px;top:62px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.door .knock{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:5px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
+.house:hover .door .leaf,.door:focus-visible .leaf{transform:rotateY(-62deg)}
+.house:hover .door .knock,.door:focus-visible .knock{opacity:1}
+.steps{width:110px;height:14px;background:#cfc8b8;box-shadow:0 7px 0 #bdb5a3}
+.hiring{position:absolute;right:-6px;top:150px;background:#fff;border:2px solid var(--ink);padding:8px 10px;font-family:var(--display);font-size:16px;line-height:1.1;transform:rotate(6deg);text-align:center;box-shadow:3px 3px 0 var(--ink);z-index:2}
+.hiring small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em}
+.palm{width:150px;flex:none;align-self:flex-end;height:520px;position:relative}
+.palm svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
+.sidewalk{height:30px;background:var(--walk);background-image:repeating-linear-gradient(90deg,transparent 0 118px,rgba(0,0,0,.12) 118px 120px);border-top:3px solid #c6bfb0}
+.road{height:clamp(50px,9vh,90px);background-color:#7d7a72;background-image:
+  radial-gradient(ellipse 14px 9px at 10px 8px,#96928a 60%,transparent 64%),
+  radial-gradient(ellipse 14px 9px at 26px 22px,#8b877f 60%,transparent 64%);background-size:32px 28px}
+
+/* Section shells */
+section.block{padding-block:110px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,40ch);gap:16px 40px;align-items:end;margin-bottom:48px}
+.head .mono{grid-column:1/-1;color:#5b6b64}
+.head h2{font-family:var(--display);font-size:clamp(40px,5.6vw,76px);line-height:.98;letter-spacing:-.02em}
+.head p{color:#46524d}
+
+/* Paint-your-house calculator */
+.paint{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.ctrls{display:grid;gap:28px}
+.ctrl{display:grid;gap:10px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:600}
+.ctrl output{font-family:var(--display);font-size:30px;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--ch-green);height:28px}
+.colors{display:flex;gap:10px;flex-wrap:wrap}
+.colors button{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px rgba(0,0,0,.15);cursor:pointer;background:var(--c)}
+.colors button[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+.preview{display:grid;justify-items:center;gap:20px;background:linear-gradient(180deg,var(--sky-1),var(--sky-2) 70%,var(--walk) 70%);border-radius:18px;padding:40px 20px 30px;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.mini{width:200px;background:var(--pc,var(--pink));padding:16px 18px 0;display:grid;gap:12px;justify-items:center;position:relative;transition:background .4s ease}
+.mini::before{content:"";position:absolute;left:-6px;right:-6px;top:-14px;height:16px;background:inherit;filter:brightness(.92);box-shadow:inset 0 -4px 0 rgba(255,255,255,.5)}
+.mini .floor{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;animation:rise .35s ease}
+@keyframes rise{from{transform:scaleY(.6);opacity:.4}}
+.mini .floor i{height:34px;background:linear-gradient(160deg,#dbe9f2,#9fb8c8);border:3px solid #fff;position:relative}
+.mini .floor i::before,.mini .floor i::after{content:"";position:absolute;top:-3px;bottom:-3px;width:8px;background:var(--ch-green)}
+.mini .floor i::before{left:-12px}.mini .floor i::after{right:-12px}
+.mini .md{width:44px;height:64px;background:var(--ch-green);border:3px solid #fff;border-bottom:0;border-radius:22px 22px 0 0}
+.result{text-align:center;display:grid;gap:4px}
+.result b{font-family:var(--display);font-size:clamp(46px,5vw,64px);line-height:1;font-variant-numeric:tabular-nums}
+.result span{font-size:14px;color:#46524d}
+.fine{font-size:12px;color:#6a746f;margin-top:22px;max-width:75ch}
+
+/* Neighborhood street signs */
+.signs{display:flex;flex-wrap:wrap;gap:14px}
+.signs span{background:var(--ch-green);color:#fff;font-family:var(--display);font-size:20px;padding:10px 18px;border-radius:5px;box-shadow:inset 0 0 0 2px var(--ch-green),inset 0 0 0 4px rgba(255,255,255,.75);transition:transform .25s ease}
+.signs span:nth-child(odd):hover{transform:rotate(-3deg)}
+.signs span:nth-child(even):hover{transform:rotate(3deg)}
+
+/* Footer plaque */
+footer{background:var(--walk);border-top:3px solid #c6bfb0;padding-block:80px 60px}
+.foot{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.marker{width:260px;max-width:100%;aspect-ratio:1/1.12;border-radius:50% 50% 46% 46%;background:radial-gradient(circle at 40% 30%,#2f3a33,#141b17);color:#e6c873;display:grid;place-content:center;text-align:center;gap:6px;padding:30px;box-shadow:inset 0 0 0 6px #141b17,inset 0 0 0 8px #b8933d,0 18px 30px -16px rgba(0,0,0,.6)}
+.marker .mono{font-size:10px;letter-spacing:.18em}
+.marker b{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;color:#f1d98e}
+.marker hr{width:60%;border:0;border-top:1px solid #b8933d;margin:4px auto}
+.foot-copy{display:grid;gap:14px;min-width:0}
+.foot-copy h2{font-family:var(--display);font-size:clamp(30px,3.6vw,44px)}
+.contact{display:flex;flex-wrap:wrap;gap:10px 24px;font-family:var(--mono);font-size:14px}
+.copy{font:inherit;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:3px 9px;margin-left:6px;cursor:pointer}
+.legal{font-size:12.5px;color:#5b6159;max-width:80ch}
+
+/* Dialog */
+dialog{border:0;padding:0;max-width:min(640px,calc(100vw - 32px));width:100%;border-radius:16px;background:#fff;color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(29,38,34,.55);backdrop-filter:blur(3px)}
+.dlg-top{background:var(--dc,var(--pink));padding:30px 30px 24px;position:relative;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 1px,transparent 1px 9px)}
+.dlg-top .mono{opacity:.75}
+.dlg-top h3{font-family:var(--display);font-size:38px;line-height:1.02;margin-top:8px}
+.dlg-body{padding:24px 30px 30px;display:grid;gap:16px}
+.dlg-body ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);background:#fff;font-size:20px;line-height:1;cursor:pointer}
+
+@media (max-width:860px){
+  .hero-grid,.paint,.foot{grid-template-columns:1fr}
+  .links{display:none}
+  .head{grid-template-columns:1fr}
+  .street-scroller{height:auto!important}
+  .street-stage{position:relative;height:auto;padding-top:150px}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-right:20px;padding-top:50px;-webkit-overflow-scrolling:touch}
+  .house{scroll-snap-align:center}
+  .street-meta{top:24px}
+  .house:hover .door .leaf{transform:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<header class="top">
+  <div class="in nav">
+    <a class="sign" href="#top"><b>Goulette St.</b><small>Home loans · Charleston SC</small></a>
+    <nav class="links" aria-label="Main"><a href="#row">Stroll the Row</a><a href="#paint">Paint your house</a><a href="#hoods">Neighborhoods</a><a href="#visit">Visit</a></nav>
+    <a class="btn" href="#visit" style="padding:10px 16px;font-size:14px">Get pre-approved</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="cloud" style="top:60px;width:120px;animation-duration:70s;animation-delay:-20s"></div>
+    <div class="cloud" style="top:150px;width:90px;animation-duration:95s;animation-delay:-60s"></div>
+    <div class="cloud" style="top:30px;width:140px;animation-duration:120s;animation-delay:-5s"></div>
+    <div class="in hero-grid">
+      <div>
+        <span class="mono">Derek Goulette · Branch Manager · Fairway Home Mortgage · Daniel Island</span>
+        <h1>Every home in Charleston has a <span class="c" id="colorful">different color</span>.</h1>
+      </div>
+      <div class="hero-side">
+        <p>So should every loan. Stroll the Row, knock on a door, and find the way home that fits you, from first-time buyer to waterfront jumbo.</p>
+        <div class="ctas"><a class="btn" href="#row">Start strolling</a><a class="btn alt" href="#paint">What can I afford?</a></div>
+      </div>
+    </div>
+    <div class="in"><div class="walk-hint">Scroll down to walk the street <i></i></div></div>
+  </div>
+
+  <div class="street-scroller" id="row">
+    <div class="street-stage">
+      <div class="in street-meta">
+        <h2>Welcome to the Row.</h2>
+        <span class="mono" id="addr">No. 1 · Meet Derek</span>
+        <div class="progress"><i id="prog"></i></div>
+      </div>
+      <div class="track" id="track">
+        <div class="palm" aria-hidden="true"><svg viewBox="0 0 150 520"><path d="M78 520 C74 400 70 300 76 170" stroke="#8b6f4e" stroke-width="12" fill="none"/><g fill="#3f7a4f"><path d="M76 170 C40 140 10 150 0 175 C30 160 55 165 76 172Z"/><path d="M76 170 C110 135 140 145 150 170 C120 158 98 160 76 172Z"/><path d="M76 168 C60 120 30 105 10 115 C40 120 60 140 76 170Z"/><path d="M76 168 C95 118 125 105 145 112 C115 120 92 140 76 170Z"/><path d="M76 166 C74 120 80 95 90 80 C88 110 84 135 77 168Z"/></g></svg></div>
+
+        <article class="house gable" style="--c:var(--rasp);--h:470px" data-dlg="derek" data-name="No. 1 · Meet Derek">
+          <span class="num">No. 1</span>
+          <div class="wins"><div class="win"></div><div class="win portrait" role="img" aria-label="Derek Goulette"></div><div class="win"></div></div>
+          <div class="balcony" style="margin-top:16px"></div>
+          <div class="plaque"><h3>Meet Derek</h3><p>Branch manager, Daniel Island. Answers his own phone.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#1f2a24" aria-label="Knock: Meet Derek"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house" style="--c:var(--pink);--h:420px" data-dlg="first" data-name="No. 3 · First-time buyers">
+          <span class="num">No. 3</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="plaque"><h3>First Home</h3><p>FHA, low down payment, and down-payment help.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" aria-label="Knock: First Home"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house step" style="--c:var(--yellow);--h:480px" data-dlg="luxury" data-name="No. 5 · Luxury & jumbo">
+          <span class="num">No. 5</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="balcony" style="margin-top:14px"></div>
+          <div class="plaque"><h3>Waterfront &amp; Jumbo</h3><p>Kiawah, Daniel Island, Sullivan's. $1M and up.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#3a2a1c" aria-label="Knock: Waterfront and Jumbo"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house" style="--c:var(--mint);--h:400px" data-dlg="va" data-name="No. 7 · VA loans">
+          <span class="num">No. 7</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="plaque"><h3>VA Loans</h3><p>Zero down for those who served. Joint Base Charleston, welcome home.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#24375a" aria-label="Knock: VA Loans"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house gable" style="--c:var(--blue);--h:450px" data-dlg="invest" data-name="No. 9 · Investors">
+          <span class="num">No. 9</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="balcony" style="margin-top:14px"></div>
+          <div class="plaque"><h3>Investors</h3><p>Rentals and short-term stays, qualified on rental income.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" aria-label="Knock: Investors"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house" style="--c:var(--lilac);--h:410px" data-dlg="refi" data-name="No. 11 · Refinance">
+          <span class="num">No. 11</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="plaque"><h3>Refinance</h3><p>A lower payment, or cash out for the kitchen you keep talking about.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#4a2f52" aria-label="Knock: Refinance"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house step" style="--c:var(--peach);--h:460px" data-dlg="move" data-name="No. 13 · Moving to Charleston">
+          <span class="num">No. 13</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="plaque"><h3>New to Town</h3><p>Relocating? Get approved before the moving truck.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" aria-label="Knock: New to Town"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house gable" style="--c:var(--sage);--h:440px" data-dlg="realtors" data-name="No. 15 · Realtors">
+          <span class="num">No. 15</span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="balcony" style="margin-top:14px"></div>
+          <div class="plaque"><h3>Realtors' Row</h3><p>Fast pre-approvals and co-branded content for your listings.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#3a2a1c" aria-label="Knock: Realtors' Row"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <article class="house" style="--c:var(--cream);--h:420px" data-dlg="join" data-name="No. 17 · Now hiring">
+          <span class="num">No. 17</span>
+          <span class="hiring">Room for<br>3 more<small>Loan officers</small></span>
+          <div class="wins"><div class="win"></div><div class="win"></div><div class="win"></div></div>
+          <div class="plaque"><h3>Join the Branch</h3><p>Loan officers: build your book on Daniel Island.</p></div>
+          <div class="door-row"><span class="lantern"></span><button class="door" style="--d:#c2496b" aria-label="Knock: Join the Branch"><span class="leaf"></span><span class="knock">Knock</span></button><span class="lantern"></span></div>
+          <div class="steps"></div>
+        </article>
+
+        <div class="palm" aria-hidden="true" style="transform:scaleX(-1)"><svg viewBox="0 0 150 520"><path d="M78 520 C74 400 70 300 76 170" stroke="#8b6f4e" stroke-width="12" fill="none"/><g fill="#3f7a4f"><path d="M76 170 C40 140 10 150 0 175 C30 160 55 165 76 172Z"/><path d="M76 170 C110 135 140 145 150 170 C120 158 98 160 76 172Z"/><path d="M76 168 C60 120 30 105 10 115 C40 120 60 140 76 170Z"/><path d="M76 168 C95 118 125 105 145 112 C115 120 92 140 76 170Z"/><path d="M76 166 C74 120 80 95 90 80 C88 110 84 135 77 168Z"/></g></svg></div>
+      </div>
+      <div class="sidewalk"></div>
+      <div class="road"></div>
+    </div>
+  </div>
+
+  <section class="block" id="paint">
+    <div class="in">
+      <div class="head">
+        <span class="mono">Paint your house · payment estimator</span>
+        <h2>Pick a price. Pick a color. Watch it build.</h2>
+        <p>Slide to your price and down payment. Your house grows a floor as the price climbs, and the payment updates as you go.</p>
+      </div>
+      <div class="paint">
+        <div class="ctrls">
+          <div class="ctrl"><label for="price">Home price <output id="o-price">$675,000</output></label><input id="price" type="range" min="250000" max="2500000" step="5000" value="675000"></div>
+          <div class="ctrl"><label for="down">Down payment <output id="o-down">20%</output></label><input id="down" type="range" min="0" max="40" step="0.5" value="20"></div>
+          <div class="ctrl"><label for="rate">Example rate, 30-yr fixed <output id="o-rate">6.50%</output></label><input id="rate" type="range" min="4" max="9" step="0.125" value="6.5"></div>
+          <div class="ctrl"><label>Paint color</label><div class="colors" id="colors" role="group" aria-label="House color">
+            <button style="--c:var(--pink)" aria-label="Pink" aria-pressed="true"></button><button style="--c:var(--yellow)" aria-label="Yellow" aria-pressed="false"></button><button style="--c:var(--mint)" aria-label="Mint" aria-pressed="false"></button><button style="--c:var(--blue)" aria-label="Blue" aria-pressed="false"></button><button style="--c:var(--lilac)" aria-label="Lilac" aria-pressed="false"></button><button style="--c:var(--peach)" aria-label="Peach" aria-pressed="false"></button></div></div>
+        </div>
+        <div class="preview">
+          <div class="mini" id="mini"></div>
+          <div class="result" aria-live="polite"><b id="pmt">$3,413</b><span>estimated principal &amp; interest per month</span><span id="loan">on a $540,000 loan</span></div>
+        </div>
+      </div>
+      <p class="fine">For illustration only. Principal and interest only; taxes, insurance, HOA dues, and mortgage insurance are not included. Rates are examples, not a quote or a commitment to lend. All loans subject to credit approval.</p>
+    </div>
+  </section>
+
+  <section class="block" id="hoods" style="padding-top:0">
+    <div class="in">
+      <div class="head">
+        <span class="mono">Neighborhoods · where Derek lends</span>
+        <h2>The Row is just the start.</h2>
+        <p>From peninsula singles to Summerville cul-de-sacs, Derek knows the streets, the flood zones, and the HOAs.</p>
+      </div>
+      <div class="signs"><span>Daniel Island</span><span>Mount Pleasant</span><span>West Ashley</span><span>James Island</span><span>Johns Island</span><span>Summerville</span><span>Isle of Palms</span><span>Sullivan's Island</span><span>Kiawah</span><span>Park Circle</span><span>The Peninsula</span></div>
+    </div>
+  </section>
+</main>
+
+<footer id="visit">
+  <div class="in foot">
+    <div class="marker"><span class="mono">Home loans since day one</span><b>Derek<br>Goulette</b><hr><span class="mono">115 Fairchild St<br>Daniel Island</span></div>
+    <div class="foot-copy">
+      <h2>Come knock on our door.</h2>
+      <div class="contact"><span>Office <span id="phone">949-280-8044</span><button class="copy" data-copy="949-280-8044" type="button">Copy</button></span><span>derek.goulette@fairwaymc.com</span><span>115 Fairchild St, Suite 310, Daniel Island, SC 29492</span></div>
+      <div class="ctas"><a class="btn" href="#visit">Apply now</a><a class="btn alt" href="#visit">Upload documents</a></div>
+      <p class="legal">Derek Goulette, Branch Manager, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. Equal Housing Opportunity. This is not a commitment to lend. All loans subject to credit approval. Concept design, draft for review.</p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title"><div class="dlg-top"><span class="mono" id="dlg-num"></span><h3 id="dlg-title"></h3><button class="close" id="dlg-close" aria-label="Close">×</button></div><div class="dlg-body" id="dlg-body"></div></dialog>
+
+<template id="t-derek"><p>Derek runs Fairway's Daniel Island branch and still talks to every client himself. Talking with buyers and Realtors is his favorite part of the job, and it shows.</p><ul><li>Branch Manager, NMLS #325427</li><li>Homes from first condos to $1M+ waterfront</li><li>Short video guides every week on Instagram</li></ul><a class="btn" href="#visit">Book a 15-minute call</a></template>
+<template id="t-first"><p>Your first house is the one you'll always remember. Derek breaks down every option in plain English so you can buy with confidence.</p><ul><li>Conventional loans from 3% down</li><li>FHA loans from 3.5% down, flexible on credit</li><li>South Carolina down-payment assistance programs</li></ul><a class="btn" href="#paint">See what I can afford</a></template>
+<template id="t-luxury"><p>Waterfront lots, marsh views, and new construction on the islands. Bigger homes need a loan built around your whole financial picture.</p><ul><li>Jumbo loans above conforming limits</li><li>Options for self-employed and business owners</li><li>Second homes and vacation properties</li></ul><a class="btn" href="#visit">Talk jumbo with Derek</a></template>
+<template id="t-va"><p>You earned this benefit. Derek helps service members, veterans, and military families use it to its fullest.</p><ul><li>No down payment required for eligible buyers</li><li>No monthly mortgage insurance</li><li>PCS'ing to Joint Base Charleston? Start before you arrive</li></ul><a class="btn" href="#visit">Check my VA eligibility</a></template>
+<template id="t-invest"><p>Charleston rentals, long-term or short-term. Derek works with first-time investors and seasoned portfolio builders.</p><ul><li>Conventional investment property loans</li><li>DSCR loans that qualify on rental income</li><li>Cash-out refinance to fund the next one</li></ul><a class="btn" href="#visit">Run an investment scenario</a></template>
+<template id="t-refi"><p>Already own? A refinance can lower your payment, shorten your term, or turn equity into cash.</p><ul><li>Rate-and-term refinance</li><li>Cash-out refinance for renovations or debt payoff</li><li>FHA and VA streamline options</li></ul><a class="btn" href="#visit">Is a refi worth it for me?</a></template>
+<template id="t-move"><p>Moving to the Lowcountry? Get pre-approved before you fly in for house hunting, so you can make an offer the same weekend.</p><ul><li>Pre-approval from anywhere</li><li>Introductions to trusted local Realtors</li><li>Advice on flood zones, insurance, and neighborhoods</li></ul><a class="btn" href="#visit">Plan my move</a></template>
+<template id="t-realtors"><p>Derek's best days are spent with agents. Send him your buyers and he'll make you look good.</p><ul><li>Fast, solid pre-approvals that win offers</li><li>Updates at every milestone, no chasing</li><li>Co-branded videos and social posts for your listings</li></ul><a class="btn" href="#visit">Become a partner</a></template>
+<template id="t-join"><p>The Daniel Island branch is growing and there's room for three more loan officers on the team.</p><ul><li>Marketing and content support handled for you</li><li>Fairway's full product shelf and operations</li><li>A branch manager who's still producing and still mentoring</li></ul><a class="btn" href="#visit">Start a confidential conversation</a></template>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Rainbow letters
+  const c=$('colorful'); const pal=['#d0607c','#d9a520','#3e9a6b','#4b84c2','#8d6cc0','#e0874a','#c2496b'];let k=0;
+  c.innerHTML=c.textContent.split(' ').map(w=>'<span style="white-space:nowrap">'+[...w].map(ch=>'<i style="color:'+pal[k++%7]+'">'+ch+'</i>').join('')+'</span>').join(' ');
+
+  // Horizontal street driven by vertical scroll
+  const scroller=$('row'), track=$('track'), prog=$('prog'), addr=$('addr');
+  const houses=[...track.querySelectorAll('.house')];
+  const wide=()=>matchMedia('(min-width: 861px)').matches;
+  function layout(){
+    if(!wide()){scroller.style.removeProperty('--len');track.style.transform='';return;}
+    const dist=track.scrollWidth-innerWidth;
+    scroller.style.setProperty('--len',(dist+innerHeight)+'px');
+    update();
+  }
+  function update(){
+    if(!wide())return;
+    const r=scroller.getBoundingClientRect();
+    const total=scroller.offsetHeight-innerHeight;
+    const p=Math.min(1,Math.max(0,-r.top/total));
+    const dist=track.scrollWidth-innerWidth;
+    track.style.transform='translateX('+(-p*dist)+'px)';
+    prog.style.width=(p*100)+'%';
+    const mid=innerWidth/2; let best=houses[0],bd=1e9;
+    houses.forEach(h=>{const b=h.getBoundingClientRect();const d=Math.abs(b.left+b.width/2-mid);if(d<bd){bd=d;best=h;}});
+    addr.textContent=best.dataset.name;
+  }
+  addEventListener('scroll',update,{passive:true}); addEventListener('resize',layout);
+  document.fonts&&document.fonts.ready.then(layout); layout();
+
+  // Knock → dialog
+  const dlg=$('dlg');
+  houses.forEach(h=>{
+    h.querySelector('.door').addEventListener('click',()=>{
+      const t=$('t-'+h.dataset.dlg);
+      dlg.style.setProperty('--dc',getComputedStyle(h).getPropertyValue('--c'));
+      $('dlg-num').textContent=h.dataset.name.split(' · ')[0];
+      $('dlg-title').textContent=h.querySelector('.plaque h3').textContent;
+      $('dlg-body').innerHTML=''; $('dlg-body').appendChild(t.content.cloneNode(true));
+      dlg.querySelectorAll('.dlg-body a').forEach(a=>a.addEventListener('click',()=>dlg.close()));
+      dlg.showModal();
+    });
+  });
+  $('dlg-close').addEventListener('click',()=>dlg.close());
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
+
+  // Paint-your-house calculator
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const mini=$('mini'); let floors=0;
+  function calc(){
+    const price=+$('price').value, dp=+$('down').value, rate=+$('rate').value;
+    const loan=price*(1-dp/100), r=rate/1200, n=360;
+    const pmt=r?loan*r/(1-Math.pow(1+r,-n)):loan/n;
+    $('o-price').textContent=money(price);
+    $('o-down').textContent=(dp%1?dp.toFixed(1):dp)+'%';
+    $('o-rate').textContent=rate.toFixed(3).replace(/0+$/,'').replace(/\.$/,'')+'%';
+    $('pmt').textContent=money(pmt);
+    $('loan').textContent='on a '+money(loan)+' loan';
+    const f=price<450000?1:price<800000?2:price<1300000?3:4;
+    if(f!==floors){floors=f;mini.innerHTML='';for(let i=0;i<f;i++){const d=document.createElement('div');d.className='floor';d.innerHTML='<i></i><i></i><i></i>';mini.appendChild(d);}const door=document.createElement('div');door.className='md';mini.appendChild(door);}
+  }
+  ['price','down','rate'].forEach(id=>$(id).addEventListener('input',calc)); calc();
+  $('colors').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    $('colors').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); mini.style.setProperty('--pc',b.style.getPropertyValue('--c'));
+  }));
+
+  // Copy phone
+  document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
+    const done=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy',1600);};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents($('phone'));const s=getSelection();s.removeAllRanges();s.addRange(r);};
+    try{navigator.clipboard.writeText(btn.dataset.copy).then(done,sel);}catch(e){sel();}
+  }));
+})();
+</script>

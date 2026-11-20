@@ -1,0 +1,442 @@
+<title>Derek Goulette Front Porch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Homemade+Apple&display=swap">
+<style>
+/* Concept: a conversation on Derek's front porch. Haint blue beadboard ceiling, a turning fan,
+   white railings and rocking chairs. The sky behind the page goes from afternoon to night as you
+   scroll; fireflies come out at the bottom and the porch light clicks on over the doormat.
+   Single deliberate world; colors interpolate with the hour. */
+:root{
+  --haint:#a8d5cf; --haint-d:#86bdb6; --paint:#fbfbf7; --ch-green:#1e2b25; --ink:#222a26; --soft:#5d6863;
+  --amber:#f2a541; --brick:#a4553f; --wood:#b98a5a; --wood-d:#8c623b;
+  --sky-top:#f6d9a2; --sky-bot:#fcefd2; --on-sky:#222a26; --on-sky-soft:#5d6863;
+  --display:"DM Serif Display",Georgia,serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --script:"Homemade Apple","Brush Script MT",cursive;
+  --hs:url("data:image/jpeg;base64,__IMG__");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--sky-bot);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.sky{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,var(--sky-top),var(--sky-bot))}
+#flies{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:0;background:var(--ch-green);color:#fff;cursor:pointer;font-family:var(--body);box-shadow:0 4px 0 #0f1713;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #0f1713}
+.btn.amber{background:var(--amber);color:var(--ink);box-shadow:0 4px 0 #b97616}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+/* Ceiling + header */
+.ceiling{background:var(--haint);background-image:repeating-linear-gradient(90deg,transparent 0 22px,rgba(30,43,37,.12) 22px 24px);border-bottom:10px solid var(--paint);box-shadow:0 6px 0 rgba(0,0,0,.06)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--haint)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}
+.brand b{font-family:var(--display);font-size:24px;font-weight:400}
+.brand span{font-size:12px;font-weight:600;color:#3d5650;letter-spacing:.06em}
+.links{display:flex;gap:24px;font-weight:600;font-size:14.5px}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.nav .btn{padding:10px 16px;font-size:14px;box-shadow:0 3px 0 #0f1713}
+
+/* Hero porch */
+.hero{position:relative}
+.fan{position:absolute;left:50%;top:-10px;width:170px;margin-left:-85px;z-index:1;pointer-events:none}
+.fan .rod{width:4px;height:26px;background:#3d3a35;margin:0 auto}
+.fan svg{display:block;width:170px;height:40px;margin-top:-4px}
+.fan .blades{transform-origin:85px 20px;animation:spin 2.2s linear infinite}
+@keyframes spin{50%{transform:scaleX(.12)}}
+.col{position:absolute;top:0;bottom:0;width:54px;background:linear-gradient(90deg,#e9e9e3,#fff 30%,#f1f1ec 60%,#dcdcd5);z-index:1}
+.col::before{content:"";position:absolute;inset:0 10px;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(0,0,0,.06) 6px 8px)}
+.col.l{left:0}.col.r{right:0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-block:80px 40px;position:relative;z-index:2}
+.hero h1{font-family:var(--display);font-size:clamp(60px,9vw,128px);line-height:.9;letter-spacing:-.02em;color:var(--on-sky)}
+.hero h1 em{display:block;color:var(--brick)}
+.hero .lede{font-size:20px;max-width:34ch;margin-top:22px;color:var(--on-sky)}
+.sig{font-family:var(--script);font-size:26px;margin-top:22px;color:var(--on-sky);transform:rotate(-4deg);transform-origin:left;display:inline-block}
+.hero .eyebrow{color:var(--on-sky-soft);margin-bottom:18px;display:block}
+
+/* Chat */
+.chat{background:var(--paint);border-radius:22px;box-shadow:0 30px 60px -30px rgba(60,30,10,.5),0 0 0 1px rgba(0,0,0,.05);overflow:hidden;display:flex;flex-direction:column;max-height:600px}
+.chat-head{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--haint);background-image:repeating-linear-gradient(90deg,transparent 0 22px,rgba(30,43,37,.1) 22px 24px)}
+.av{width:46px;height:46px;border-radius:50%;background:var(--hs) center 18%/cover;box-shadow:0 0 0 3px #fff;flex:none}
+.chat-head b{display:block;font-size:15px}
+.chat-head small{font-size:12.5px;color:#2f4a44;display:flex;align-items:center;gap:6px}
+.chat-head small::before{content:"";width:8px;height:8px;border-radius:50%;background:#2e9b5a}
+.chat-head button{margin-left:auto;font:inherit;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.7);border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.log{padding:20px 18px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;min-height:300px;flex:1}
+.msg{max-width:84%;padding:11px 15px;border-radius:18px;font-size:15.5px;line-height:1.45;animation:pop .3s ease both}
+.msg.d{background:#eef3ef;border-bottom-left-radius:6px;align-self:flex-start}
+.msg.u{background:var(--ch-green);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.msg.card{background:#fff7e8;border:1px solid #f0d9a8;max-width:100%;display:grid;gap:6px}
+.msg.card b{font-family:var(--display);font-size:26px;font-weight:400;line-height:1.1}
+.msg.card .big{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.msg.card small{font-size:12px;color:var(--soft)}
+@keyframes pop{from{transform:translateY(6px) scale(.98);opacity:.3}}
+.typing{display:inline-flex;gap:4px;padding:14px 16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#8a9690;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:.25}}
+.replies{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px 18px;border-top:1px solid #ecece6}
+.replies button{font:inherit;font-size:14px;font-weight:600;border:1.5px solid var(--ch-green);color:var(--ch-green);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;transition:background .15s,color .15s}
+.replies button:hover{background:var(--ch-green);color:#fff}
+.replies form{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;width:100%}
+.replies input{font:inherit;font-size:15px;padding:10px 12px;border:1.5px solid #cfd6d1;border-radius:10px;min-width:0}
+.replies .btn{padding:10px 14px;font-size:14px}
+
+/* Railing + floor */
+.railing{position:relative;z-index:2;height:120px;border-top:14px solid var(--paint);box-shadow:0 -2px 0 rgba(0,0,0,.06);background:repeating-linear-gradient(90deg,transparent 0 30px,var(--paint) 30px 46px);margin-top:20px}
+.railing::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--paint)}
+.floor{z-index:3;background:var(--wood);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 2px,transparent 2px 26px),repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 180px,rgba(0,0,0,.05) 180px 360px);height:90px;position:relative}
+.floor .chairs{position:absolute;bottom:34px;left:0;right:0;display:flex;justify-content:center;gap:220px}
+.chair{width:110px;height:137px;color:var(--ch-green);filter:drop-shadow(0 6px 0 rgba(0,0,0,.18));transform-origin:50% 95%;animation:rock 3.4s ease-in-out infinite}
+.chair:nth-child(2){animation-delay:-1.4s;transform:scaleX(-1);animation-name:rockR}
+@keyframes rock{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes rockR{0%,100%{transform:scaleX(-1) rotate(-4deg)}50%{transform:scaleX(-1) rotate(4deg)}}
+
+/* Sections */
+section{padding-block:110px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,40ch);gap:14px 40px;align-items:end;margin-bottom:46px;color:var(--on-sky)}
+.head .eyebrow{grid-column:1/-1;color:var(--on-sky-soft)}
+.head h2{font-family:var(--display);font-size:clamp(42px,5.6vw,78px);line-height:.96;letter-spacing:-.015em}
+.head h2 em{color:var(--brick)}
+.head p{color:var(--on-sky-soft)}
+
+/* Porch sessions: screen-door video cards */
+.sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.screen{background:var(--paint);padding:12px;border-radius:6px;box-shadow:0 20px 40px -24px rgba(0,0,0,.5);display:grid;gap:14px;transition:transform .3s ease}
+.screen:hover{transform:translateY(-6px) rotate(-.6deg)}
+.mesh{aspect-ratio:4/3;max-width:100%;border:8px solid var(--ch-green);position:relative;background:linear-gradient(160deg,var(--g1),var(--g2));display:grid;place-items:center;overflow:hidden}
+.mesh::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px)}
+.mesh::after{content:"";position:absolute;left:0;right:0;top:50%;border-top:8px solid var(--ch-green)}
+.mesh .play{position:relative;z-index:2;width:64px;height:64px;border-radius:50%;background:var(--paint);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.mesh .play::before{content:"";border-left:18px solid var(--ch-green);border-block:11px solid transparent;margin-left:5px}
+.mesh .len{position:absolute;z-index:2;right:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px}
+.screen h3{font-family:var(--display);font-size:24px;line-height:1.1;padding:0 6px}
+.screen p{font-size:14px;color:var(--soft);padding:0 6px 8px}
+
+/* Chairs: hiring */
+.seats{background:var(--paint);border-radius:22px;padding:44px clamp(20px,4vw,48px) 0;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.seats-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;margin-bottom:30px}
+.seats h2{font-family:var(--display);font-size:clamp(36px,4.6vw,62px);line-height:1}
+.seats h2 em{color:var(--brick)}
+.seats p{color:var(--soft);max-width:52ch;margin-top:12px}
+.row-chairs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end;border-bottom:none;padding-bottom:0}
+.seat{background:none;border:0;padding:0 0 14px;cursor:pointer;display:grid;justify-items:center;gap:8px;font:inherit;color:var(--ink)}
+.seat svg{width:min(110px,100%);color:var(--ch-green);transform-origin:50% 95%}
+.seat.empty svg{color:#aab3ae;stroke-dasharray:7 7}
+.seat .who{font-size:13px;font-weight:700}
+.seat.empty .who{color:var(--brick)}
+.seat:hover svg,.seat:focus-visible svg{animation:rock 1.2s ease-in-out 2}
+.seat.taken svg{color:var(--brick);stroke-dasharray:none}
+.deck{height:40px;margin-inline:calc(-1 * clamp(20px,4vw,48px));background:var(--wood);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 2px,transparent 2px 14px)}
+.seat-msg{min-height:1.6em;font-weight:600;color:var(--brick);margin-top:6px}
+
+/* Realtors swing */
+.swing-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.swing{position:relative;padding-top:70px}
+.swing::before,.swing::after{content:"";position:absolute;top:0;height:74px;width:0;border-left:4px dotted #6c675f}
+.swing::before{left:14%}.swing::after{right:14%}
+.swing-card{background:var(--paint);border-radius:10px;padding:34px;border-top:14px solid var(--wood);box-shadow:0 24px 50px -26px rgba(0,0,0,.5);display:grid;gap:14px;transform-origin:50% -70px;animation:sway 6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+.swing-card h3{font-family:var(--display);font-size:34px;line-height:1.05}
+.swing-card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.swing-card li{padding-left:26px;position:relative}
+.swing-card li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2.5px solid var(--brick);border-bottom:2.5px solid var(--brick);transform:rotate(-45deg)}
+details{background:var(--paint);border-radius:12px;padding:18px 22px;box-shadow:0 10px 30px -22px rgba(0,0,0,.5)}
+details + details{margin-top:12px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:var(--display);font-size:26px;line-height:.9;color:var(--brick)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--soft);font-size:15.5px}
+.faq h3{font-family:var(--display);font-size:30px;margin-bottom:18px;color:var(--on-sky)}
+
+/* Night footer */
+footer{padding-block:60px 70px;color:#f2eee4;position:relative}
+.light{width:70px;height:90px;margin:0 auto 30px;position:relative}
+.light::before{content:"";position:absolute;left:50%;top:0;width:4px;height:20px;margin-left:-2px;background:#3d3a35}
+.light span{position:absolute;left:10px;right:10px;top:20px;bottom:0;border-radius:8px 8px 20px 20px;background:linear-gradient(#ffe9a8,#f4b54d);border:4px solid #2a2622;box-shadow:0 0 calc(var(--glow,0) * 80px) calc(var(--glow,0) * 30px) rgba(255,200,100,.55);transition:box-shadow .6s ease}
+.mat{width:min(560px,100%);margin:0 auto;aspect-ratio:2/1;max-width:100%;border-radius:10px;background:#b07a3f;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 2px,transparent 2px 5px),repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 2px,transparent 2px 5px);display:grid;place-content:center;text-align:center;color:#3a2410;box-shadow:inset 0 0 0 12px #7a4f22,0 30px 50px -20px rgba(0,0,0,.6);transform:perspective(700px) rotateX(28deg)}
+.mat b{font-family:var(--display);font-size:clamp(36px,6vw,62px);line-height:1;letter-spacing:.04em}
+.mat small{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12px}
+.foot-info{display:grid;gap:14px;justify-items:center;text-align:center;margin-top:40px}
+.contact{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;font-size:15px}
+.copy{font:inherit;font-size:12px;font-weight:700;border:1.5px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:2px 10px;margin-left:6px;cursor:pointer}
+.legal{font-size:12.5px;opacity:.75;max-width:78ch}
+
+@media (max-width:900px){
+  .hero-grid,.swing-wrap{grid-template-columns:1fr}
+  .col,.links{display:none}
+  .sessions{grid-template-columns:1fr 1fr}
+  .head,.seats-top{grid-template-columns:1fr}
+  .floor .chairs{gap:90px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:76px}
+  .sessions{grid-template-columns:1fr}
+  .row-chairs{grid-template-columns:repeat(5,1fr);gap:4px}
+  .seat .who{font-size:11px}
+  .replies form{grid-template-columns:1fr}
+  .nav .btn{display:none}
+  .chair{width:84px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="rocker" viewBox="0 0 120 150"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 138 Q60 152 116 128"/><path d="M32 140 L22 14"/><path d="M90 134 L88 82"/><path d="M26 84 L94 82"/><path d="M27 62 L92 60 L90 82"/>
+    <path d="M22 14 Q14 12 12 18"/><path d="M24 30 L26 82" stroke-width="3"/><path d="M28 30 L30 82" stroke-width="3"/>
+  </g></symbol>
+</svg>
+<div class="sky" aria-hidden="true"></div>
+<canvas id="flies" aria-hidden="true"></canvas>
+
+<header class="top ceiling">
+  <div class="in nav">
+    <a class="brand" href="#top"><b>Derek Goulette</b><span>Home loans · Charleston</span></a>
+    <nav class="links" aria-label="Main"><a href="#sessions">Porch Sessions</a><a href="#seats">Join the team</a><a href="#realtors">Realtors</a><a href="#door">Visit</a></nav>
+    <a class="btn" href="#door">Apply now</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="fan" aria-hidden="true"><div class="rod"></div><svg viewBox="0 0 170 40"><g class="blades"><rect x="4" y="16" width="162" height="8" rx="4" fill="#5a4632"/></g><circle cx="85" cy="20" r="11" fill="#3d3a35"/><circle cx="85" cy="32" r="7" fill="#fff3c9"/></svg></div>
+    <span class="col l" aria-hidden="true"></span><span class="col r" aria-hidden="true"></span>
+    <div class="in hero-grid">
+      <div>
+        <span class="eyebrow">Fairway Home Mortgage · Daniel Island, SC</span>
+        <h1>Pull up a <em>chair.</em></h1>
+        <p class="lede">Buying a home is a big conversation. Let's have it the Charleston way: unhurried, honest, and on the porch.</p>
+        <span class="sig">Derek Goulette</span>
+      </div>
+      <div class="chat" aria-label="Porch talk with Derek">
+        <div class="chat-head"><span class="av" role="img" aria-label="Derek Goulette"></span><div><b>Porch talk with Derek</b><small>Usually replies the same day</small></div><button type="button" id="restart">Start over</button></div>
+        <div class="log" id="log" aria-live="polite"></div>
+        <div class="replies" id="replies"></div>
+      </div>
+    </div>
+    <div class="railing" aria-hidden="true"></div>
+    <div class="floor" aria-hidden="true"><div class="chairs"><svg class="chair"><use href="#rocker"/></svg><svg class="chair"><use href="#rocker"/></svg></div></div>
+  </div>
+
+  <section id="sessions">
+    <div class="in">
+      <div class="head">
+        <span class="eyebrow">Porch Sessions · a new video every week</span>
+        <h2>Straight talk, <em>sweet tea</em> optional.</h2>
+        <p>Short videos where Derek answers the questions people actually ask, filmed right here on the porch.</p>
+      </div>
+      <div class="sessions">
+        <article class="screen"><div class="mesh" style="--g1:#f3c27a;--g2:#d07a52"><span class="play" aria-hidden="true"></span><span class="len">0:58</span></div><h3>How much house can I really afford?</h3><p>The number the bank says versus the number you'll sleep well with.</p></article>
+        <article class="screen"><div class="mesh" style="--g1:#a8d5cf;--g2:#4f8f86"><span class="play" aria-hidden="true"></span><span class="len">1:04</span></div><h3>Flood zones, explained by a local</h3><p>What every Lowcountry buyer should check before making an offer.</p></article>
+        <article class="screen"><div class="mesh" style="--g1:#e6b9c3;--g2:#a4553f"><span class="play" aria-hidden="true"></span><span class="len">0:52</span></div><h3>VA loans: zero down, for real</h3><p>For the military families of Joint Base Charleston.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="seats" style="padding-top:0">
+    <div class="in">
+      <div class="seats">
+        <div class="seats-top">
+          <div><span class="eyebrow" style="color:var(--soft)">Now hiring · loan officers</span>
+            <h2>There's room on the porch for <em>three more.</em></h2>
+            <p>Derek's Daniel Island branch is growing. Pick a chair and come build your business with a team that handles the marketing and a branch manager who still mentors.</p></div>
+          <a class="btn amber" href="#door">Claim a seat</a>
+        </div>
+        <div class="row-chairs" id="chairs">
+          <button class="seat" type="button" data-msg="That's Derek's chair. It's been broken in for years."><svg viewBox="0 0 120 150"><use href="#rocker"/></svg><span class="who">Derek</span></button>
+          <button class="seat" type="button" data-msg="Taken by the team member who keeps every loan on schedule."><svg viewBox="0 0 120 150"><use href="#rocker"/></svg><span class="who">The team</span></button>
+          <button class="seat empty" type="button"><svg viewBox="0 0 120 150"><use href="#rocker"/></svg><span class="who">Your seat?</span></button>
+          <button class="seat empty" type="button"><svg viewBox="0 0 120 150"><use href="#rocker"/></svg><span class="who">Your seat?</span></button>
+          <button class="seat empty" type="button"><svg viewBox="0 0 120 150"><use href="#rocker"/></svg><span class="who">Your seat?</span></button>
+        </div>
+        <p class="seat-msg" id="seat-msg" aria-live="polite">Tap a chair.</p>
+        <div class="deck" aria-hidden="true" style="margin-top:14px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realtors" style="padding-top:0">
+    <div class="in swing-wrap">
+      <div>
+        <div class="head" style="grid-template-columns:1fr;margin-bottom:28px">
+          <span class="eyebrow">For Realtors</span>
+          <h2>The porch is always open to <em>agents.</em></h2>
+          <p>Derek's favorite part of the job is talking with Realtors. Send him a buyer and you'll see why.</p>
+        </div>
+        <div class="swing"><div class="swing-card">
+          <h3>What partners get</h3>
+          <ul><li>Pre-approvals that make your offers look like cash</li><li>Updates at every milestone, without chasing anyone</li><li>Co-branded videos and posts for your listings</li><li>Derek's cell, not a call center</li></ul>
+          <a class="btn" href="#door" style="justify-self:start">Become a partner</a>
+        </div></div>
+      </div>
+      <div class="faq">
+        <h3>Questions people ask on the porch</h3>
+        <details open><summary>How long does pre-approval take?</summary><p>Often the same day once your documents are in. Derek reviews every file himself before it goes out.</p></details>
+        <details><summary>How much do I really need for a down payment?</summary><p>Less than most people think. Some loans start at 3% down, FHA at 3.5%, and VA at zero for eligible buyers.</p></details>
+        <details><summary>I'm moving to Charleston from out of state. Can we start now?</summary><p>Yes. Get approved before you fly in, so you can make an offer the same weekend you find the house.</p></details>
+        <details><summary>What about flood insurance?</summary><p>It matters here. Derek helps you check the flood zone and estimate insurance before you write an offer.</p></details>
+        <details><summary>I'm self-employed. Is that a problem?</summary><p>No. There are loan options built for business owners and entrepreneurs, and Derek works with them all the time.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="door">
+  <div class="in">
+    <div class="light" aria-hidden="true"><span></span></div>
+    <div class="mat"><small>Y'all come</small><b>ON IN</b><small>Derek Goulette · Home Loans</small></div>
+    <div class="foot-info">
+      <div class="contact"><span>Office <span id="phone">949-280-8044</span><button class="copy" type="button" data-copy="949-280-8044">Copy</button></span><span>derek.goulette@fairwaymc.com</span><span>115 Fairchild St, Suite 310, Daniel Island, SC 29492</span></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><a class="btn amber" href="#top">Apply now</a><a class="btn" href="#top" style="background:#f2eee4;color:var(--ink);box-shadow:0 4px 0 #b9b2a3">Upload documents</a></div>
+      <p class="legal">Derek Goulette, Branch Manager, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. Equal Housing Opportunity. This is not a commitment to lend. All loans subject to credit approval. Concept design, draft for review.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Sky: afternoon to night with scroll ---------- */
+  const stops=[ // t, top, bottom, ink, inkSoft
+    [0,'#f6d9a2','#fcefd2','#222a26','#5d6863'],
+    [.45,'#ef9f6e','#f8c79c','#222a26','#4a3a30'],
+    [.72,'#6a4f7d','#d98a7a','#fbf3e6','#f1dccb'],
+    [1,'#141a33','#2f2a52','#f2eee4','#c9c3d8']];
+  const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  const mix=(a,b,t)=>'rgb('+hex(a).map((v,i)=>Math.round(v+(hex(b)[i]-v)*t)).join(',')+')';
+  let T=0;
+  function sky(){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    T=max>0?Math.min(1,scrollY/max):0;
+    let i=0; while(i<stops.length-2&&T>stops[i+1][0])i++;
+    const a=stops[i],b=stops[i+1],k=(T-a[0])/(b[0]-a[0]);
+    const s=document.documentElement.style;
+    s.setProperty('--sky-top',mix(a[1],b[1],k)); s.setProperty('--sky-bot',mix(a[2],b[2],k));
+    const ink=k<.5?a:b; s.setProperty('--on-sky',ink[3]); s.setProperty('--on-sky-soft',ink[4]);
+    s.setProperty('--glow',Math.max(0,(T-.8)/.2).toFixed(2));
+  }
+  addEventListener('scroll',sky,{passive:true}); addEventListener('resize',sky); sky();
+
+  /* ---------- Fireflies ---------- */
+  const cv=$('flies'), ctx=cv.getContext&&cv.getContext('2d');
+  if(ctx){
+    let W,H; const dpr=Math.min(devicePixelRatio||1,2);
+    const size=()=>{W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);};
+    size(); addEventListener('resize',size);
+    const flies=Array.from({length:46},()=>({x:Math.random(),y:.25+Math.random()*.75,p:Math.random()*6.28,s:.3+Math.random()*.7}));
+    (function loop(now){
+      ctx.clearRect(0,0,W,H);
+      const vis=Math.max(0,(T-.62)/.3);
+      if(vis>0){
+        flies.forEach(f=>{
+          if(!reduce){f.p+=.012*f.s; f.x+=Math.cos(f.p*1.3)*.0006; f.y+=Math.sin(f.p)*.0005; if(f.x<0)f.x=1; if(f.x>1)f.x=0;}
+          const a=vis*(.35+.65*Math.max(0,Math.sin(f.p*2.2)));
+          const x=f.x*W,y=f.y*H,g=ctx.createRadialGradient(x,y,0,x,y,10);
+          g.addColorStop(0,'rgba(255,236,140,'+a+')'); g.addColorStop(1,'rgba(255,236,140,0)');
+          ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,10,0,6.3); ctx.fill();
+        });
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* ---------- Porch talk ---------- */
+  const log=$('log'), rep=$('replies');
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  let A={};
+  const flow={
+    start:{q:"Hey, I'm Derek. Glad you stopped by. What brings you to the porch today?",
+      opts:[["Buying my first home","first"],["Moving up or to the islands","up"],["I'm a veteran or service member","va"],["An investment property","invest"],["Thinking about refinancing","refi"],["I'm a Realtor","realtor"]],
+      next:v=>v==='realtor'?'agent':'price'},
+    price:{q:()=>A.start==='refi'?"Love it. Roughly what's the home worth today?":"Love it. What price range are you thinking?",
+      opts:[["Under $400K",350000],["$400K to $700K",550000],["$700K to $1M",850000],["Over $1M",1300000]],next:()=>'down'},
+    down:{q:()=>A.start==='refi'?"And about how much do you still owe, as a share of the value?":"And how much are you hoping to put down?",
+      opts:()=>A.start==='refi'?[["Under half",.6],["About half",.5],["About 70%",.3],["Most of it",.15]]:[["Little to nothing",0],["3 to 5%",.04],["About 10%",.1],["20% or more",.2]],next:()=>'when'},
+    when:{q:"Last one. When are you hoping to make a move?",opts:[["As soon as possible","asap"],["In 1 to 3 months","soon"],["In 3 to 6 months","later"],["Just exploring","explore"]],next:()=>'summary'},
+    agent:{q:"My favorite people! How many buyers do you work with in a year?",opts:[["Fewer than 10",1],["10 to 25",2],["More than 25",3]],next:()=>'agentsum'}
+  };
+  function program(){
+    const s=A.start, dp=A.down, price=A.price;
+    if(s==='va')return ['VA loan','Zero down and no monthly mortgage insurance for eligible buyers.'];
+    if(s==='refi')return ['Refinance review','Derek compares a rate-and-term refi with a cash-out option for your numbers.'];
+    if(s==='invest')return ['Investment loan','Conventional or DSCR, depending on whether you qualify on income or rent.'];
+    if(price*(1-dp)>800000)return ['Jumbo loan','A loan this size is likely above conforming limits. Derek builds these around your full picture.'];
+    if(dp<.035)return ['FHA or down-payment help','Low or no money down is possible. Ask about South Carolina assistance programs.'];
+    if(dp<.2)return ['Conventional with low down','A little mortgage insurance now, removable as your equity grows.'];
+    return ['Conventional','20% down means no mortgage insurance. A clean, simple fit.'];
+  }
+  function say(text,cls='d',html=false){const m=document.createElement('div');m.className='msg '+cls;html?m.innerHTML=text:m.textContent=text;log.appendChild(m);log.scrollTop=log.scrollHeight;return m;}
+  function typing(cb,instant){
+    if(instant||reduce){cb();return;}
+    const t=document.createElement('div');t.className='msg d typing';t.innerHTML='<i></i><i></i><i></i>';log.appendChild(t);log.scrollTop=log.scrollHeight;
+    setTimeout(()=>{t.remove();cb();},750);
+  }
+  function ask(key,instant){
+    const st=flow[key]; rep.innerHTML='';
+    typing(()=>{
+      say(typeof st.q==='function'?st.q():st.q);
+      const opts=typeof st.opts==='function'?st.opts():st.opts;
+      opts.forEach(([label,val])=>{const b=document.createElement('button');b.type='button';b.textContent=label;
+        b.onclick=()=>{say(label,'u');A[key]=val;rep.innerHTML='';const n=st.next(val);n==='summary'?summary():n==='agentsum'?agentSum():ask(n);};rep.appendChild(b);});
+    },instant);
+  }
+  function summary(){
+    typing(()=>{
+      const [name,why]=program();
+      let body;
+      if(A.start==='refi'){
+        const loan=A.price*A.down; const r=.065/12,n=360,p=loan*r/(1-Math.pow(1+r,-n));
+        body='<span class="big">'+money(p)+'<span style="font-size:16px">/mo</span></span><small>Example payment on a '+money(loan)+' balance at a 6.5% example rate, 30-year fixed, principal and interest only.</small>';
+      } else {
+        const loan=A.price*(1-A.down); const r=.065/12,n=360,p=loan*r/(1-Math.pow(1+r,-n));
+        body='<span class="big">'+money(p)+'<span style="font-size:16px">/mo</span></span><small>Example payment on a '+money(A.price)+' home at a 6.5% example rate, 30-year fixed, principal and interest only. Not a quote.</small>';
+      }
+      say("Here's where I'd start:");
+      say('<small>Suggested fit</small><b>'+name+'</b><span>'+why+'</span>'+body,'msg card',true);
+      setTimeout(()=>typing(()=>{say(A.when==='explore'?"No rush at all. Want me to call when you're ready to look at real numbers?":"Want me to give you a call and walk through it?");contactForm();}),reduce?0:500);
+    });
+  }
+  function agentSum(){
+    typing(()=>{say("Perfect. Here's how I take care of partners: fast pre-approvals, updates at every milestone, and co-branded content for your listings. Coffee on Daniel Island this week?");contactForm('Let\'s grab coffee');});
+  }
+  function contactForm(cta){
+    rep.innerHTML='<form id="cf"><input id="cf-name" placeholder="Your name" autocomplete="name" required><input id="cf-phone" placeholder="Phone" autocomplete="tel" inputmode="tel" required><button class="btn" type="submit">'+(cta||'Call me')+'</button></form>';
+    $('cf').addEventListener('submit',e=>{e.preventDefault();const n=$('cf-name').value.trim().split(' ')[0]||'friend';
+      say(n+' · '+$('cf-phone').value,'u'); rep.innerHTML='';
+      typing(()=>say("Thanks, "+n+". (Concept preview: on the live site, this goes straight into Derek's CRM and he follows up personally.)"));});
+  }
+  function start(instant){log.innerHTML='';A={};ask('start',instant);}
+  $('restart').addEventListener('click',()=>start(false));
+  start(true);
+
+  /* ---------- Hiring chairs ---------- */
+  const seatMsg=$('seat-msg'); let claimed=0;
+  document.querySelectorAll('#chairs .seat').forEach(s=>s.addEventListener('click',()=>{
+    if(s.classList.contains('empty')){s.classList.remove('empty');s.classList.add('taken');claimed++;s.querySelector('.who').textContent='You!';
+      seatMsg.textContent=claimed===3?'Full porch. That\'s the dream: let\'s talk.':'Good choice. '+(3-claimed)+' more open.';}
+    else if(s.classList.contains('taken')){seatMsg.textContent='That one\'s yours. Ready to talk?';}
+    else seatMsg.textContent=s.dataset.msg;
+  }));
+
+  /* ---------- Copy phone ---------- */
+  document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
+    const done=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy',1600);};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents($('phone'));const s=getSelection();s.removeAllRanges();s.addRange(r);};
+    try{navigator.clipboard.writeText(btn.dataset.copy).then(done,sel);}catch(e){sel();}
+  }));
+})();
+</script>
