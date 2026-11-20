@@ -115,11 +115,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero h1 span{display:block}
 .hero .lede{margin-top:32px}
 .hero .acts{margin-top:30px}
-.hero-photo{position:relative;margin-right:calc(-1 * var(--gut-r));overflow:hidden;min-height:420px}
+/* Bleeds to the viewport edge even when the screen is wider than --wrap */
+.hero-photo{position:relative;margin-right:calc(min(0px,(var(--wrap) - 100vw) / 2) - var(--gut-r));overflow:hidden;min-height:420px}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;animation:heroIn 2.2s cubic-bezier(.2,.7,.2,1) both}
 @keyframes heroIn{from{transform:scale(1.06)}}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(15,20,41,0) 35%),linear-gradient(0deg,rgba(15,20,41,.65),transparent 35%)}
-.credit{position:absolute;right:var(--gut-r);bottom:26px;z-index:3;text-align:right;display:grid;gap:6px}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(15,20,41,.55) 10%,rgba(15,20,41,.15) 22%,rgba(15,20,41,0) 34%),linear-gradient(0deg,rgba(15,20,41,.7),transparent 32%)}
+.credit{position:absolute;right:max(28px,var(--gut-r));bottom:26px;z-index:3;text-align:right;display:grid;gap:6px}
 .credit b{font-stretch:62%;font-weight:800;font-size:30px;text-transform:uppercase;line-height:1}
 .credit .meta{color:var(--mist)}
 
@@ -131,9 +132,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .phero .lede{justify-self:end}
 .phero.has-photo .wrap{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);padding-block:0;align-items:stretch}
 .phero.has-photo .copy{padding-block:96px 80px;display:grid;gap:28px;align-content:end}
-.phero.has-photo .ph{position:relative;margin-right:calc(-1 * var(--gut-r));min-height:420px}
+.phero.has-photo .ph{position:relative;margin-right:calc(min(0px,(var(--wrap) - 100vw) / 2) - var(--gut-r));overflow:hidden;min-height:420px}
 .phero.has-photo .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%}
-.phero.has-photo .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy),rgba(15,20,41,0) 40%)}
+.phero.has-photo .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(15,20,41,.55) 10%,rgba(15,20,41,.15) 22%,rgba(15,20,41,0) 34%)}
 
 /* ---------- Ticker ---------- */
 .ticker{background:var(--rasp);overflow:hidden;white-space:nowrap}
