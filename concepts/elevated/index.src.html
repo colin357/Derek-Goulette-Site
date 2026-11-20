@@ -1,0 +1,585 @@
+<title>Derek Goulette Directions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter+Tight:wght@300;400;500;600&family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Three directions, each a single committed look (photo-led, hairline grids, sharp corners).
+   A Lowcountry: editorial hospitality. B Campaign: fashion-campaign energy. C Desk: fintech precision. */
+:root{
+  --hs:url("data:image/jpeg;base64,__IMG__");
+  --sw-bg:#0f1210; --sw-fg:#f1f2ef; --sw-mute:#9aa29c;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#111;overflow-x:hidden}
+img{max-width:100%}
+h1,h2,h3,h4,p{margin:0}
+a{color:inherit}
+.g{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1320px;margin:0 auto}
+
+/* ---------- Direction switcher (not part of the designs) ---------- */
+.switch{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;background:var(--sw-bg);color:var(--sw-fg);font:500 13px/1.3 "Inter Tight",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:101;background:var(--sw-bg)}
+.switch .wrap{display:flex;align-items:center;gap:20px;padding-block:10px;flex-wrap:wrap}
+.switch .lbl{color:var(--sw-mute);letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.switch nav{display:flex;gap:4px;flex-wrap:wrap}
+.switch a{text-decoration:none;padding:7px 12px;color:var(--sw-mute);border:1px solid transparent}
+.switch a[aria-current="true"]{color:var(--sw-fg);border-color:#3a403c}
+.switch a:hover{color:var(--sw-fg)}
+.switch .note{margin-left:auto;color:var(--sw-mute);font-size:12px}
+.dir[hidden]{display:none!important}
+.photo{background:var(--hs) center 22%/cover no-repeat}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* =========================================================
+   A · LOWCOUNTRY — editorial hospitality
+   ========================================================= */
+.A{--bg:#eef0ec;--ink:#17201b;--mute:#5d6862;--line:rgba(23,32,27,.16);--marsh:#33503f;--gold:#a88b52;--haint:#c3dbd6;
+  background:var(--bg);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;font-size:17px;line-height:1.6;font-weight:400}
+.A .serif{font-family:"Gloock",Georgia,serif;font-weight:400}
+.A .sc{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.A header{border-bottom:1px solid var(--line)}
+.A header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding-block:22px}
+.A .navl,.A .navr{display:flex;gap:28px}
+.A .navr{justify-content:flex-end}
+.A .navl a,.A .navr a{text-decoration:none;font-size:14px;color:var(--mute)}
+.A .navl a:hover,.A .navr a:hover{color:var(--ink)}
+.A .wordmark{text-align:center;text-decoration:none;display:grid;gap:4px}
+.A .wordmark b{font-family:"Gloock",serif;font-weight:400;font-size:24px;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.A .wordmark span{color:var(--mute)}
+.A .ul{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;color:var(--ink)!important}
+.A .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:min(88vh,860px)}
+.A .hero-text{display:flex;flex-direction:column;justify-content:space-between;padding-block:72px 48px;padding-right:56px}
+.A .hero h1{font-size:clamp(52px,6.6vw,104px);line-height:.98;letter-spacing:-.02em;max-width:9.5em}
+.A .hero h1 i{font-style:normal;color:var(--marsh)}
+.A .hero .lede{max-width:40ch;color:var(--mute);font-size:18.5px;margin-top:32px}
+.A .hero .act{display:flex;gap:28px;align-items:center;margin-top:40px;flex-wrap:wrap}
+.A .btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;padding:17px 28px;font-size:14px;letter-spacing:.06em;transition:background .3s}
+.A .btn:hover{background:var(--marsh)}
+.A .facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;border-top:1px solid var(--line);padding-top:20px;margin-top:56px}
+.A .facts div{padding-right:28px;margin-right:28px;border-right:1px solid var(--line);display:grid;gap:2px}
+.A .facts div:last-child{border:0}
+.A .facts b{font-family:"Gloock",serif;font-weight:400;font-size:22px}
+.A .facts span{color:var(--mute)}
+.A .hero-photo{position:relative;margin-right:calc(-1 * max(24px,env(safe-area-inset-right,0px)))}
+.A .hero-photo .photo{position:absolute;inset:0;background-position:center 20%;animation:aZoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes aZoom{from{transform:scale(1.06)}}
+.A .hero-photo{overflow:hidden}
+.A .cap{position:absolute;left:28px;bottom:24px;color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.A section{padding-block:120px;border-top:1px solid var(--line)}
+.A .sh{display:grid;grid-template-columns:240px minmax(0,1fr) minmax(0,38ch);gap:40px;align-items:end;margin-bottom:56px}
+.A .sh .sc{color:var(--gold);align-self:start;padding-top:12px}
+.A .sh h2{font-size:clamp(38px,4.4vw,64px);line-height:1.02;letter-spacing:-.015em}
+.A .sh p{color:var(--mute)}
+.A .index{border-top:1px solid var(--ink)}
+.A .row{display:grid;grid-template-columns:240px minmax(0,1fr) minmax(0,1.1fr) 180px 30px;gap:40px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;transition:padding .35s ease}
+.A .row::before{content:"";position:absolute;inset:0 -24px;background:var(--haint);opacity:0;transition:opacity .35s ease;z-index:0}
+.A .row > *{position:relative;z-index:1}
+.A .row:hover{padding-left:12px}
+.A .row:hover::before{opacity:.55}
+.A .row .n{font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;letter-spacing:.1em}
+.A .row .nm{font-family:"Gloock",serif;font-size:30px;line-height:1.1}
+.A .row .kn{color:var(--mute)}
+.A .row .co{font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.A .row .ar{transition:transform .35s ease;justify-self:end}
+.A .row:hover .ar{transform:translateX(6px)}
+.A .cols{display:grid;grid-template-columns:240px repeat(3,minmax(0,1fr));gap:40px}
+.A .col{border-top:1px solid var(--ink);padding-top:22px;display:grid;gap:14px;align-content:start}
+.A .col .sc{color:var(--mute)}
+.A .col h3{font-family:"Gloock",serif;font-weight:400;font-size:28px;line-height:1.1}
+.A .col p{color:var(--mute);font-size:16px}
+.A .band{background:var(--marsh);color:#eef0ec;border:0}
+.A .band .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:60px;align-items:end}
+.A .band blockquote{margin:0;font-family:"Gloock",serif;font-size:clamp(36px,4.4vw,64px);line-height:1.08;letter-spacing:-.01em}
+.A .band .side{display:grid;gap:22px;color:#c9d3cc}
+.A .band .btn{background:#eef0ec;color:var(--marsh);justify-self:start}
+.A footer{padding-block:64px 48px;font-size:14px;color:var(--mute)}
+.A footer .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+.A footer b{display:block;color:var(--ink);font-weight:500;margin-bottom:8px}
+.A .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px;font-size:12.5px;line-height:1.6}
+
+/* =========================================================
+   B · CAMPAIGN — fashion-campaign energy
+   ========================================================= */
+.B{--navy:#0f1429;--rasp:#a8214b;--rasp-2:#c43a62;--paper:#f4f3f1;--mist:#c9d3e0;--line:rgba(255,255,255,.14);
+  background:var(--navy);color:#fff;font-family:"Archivo",system-ui,sans-serif;font-stretch:100%;font-size:17px;line-height:1.55}
+.B .cond{font-stretch:62%;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.B .meta{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.B header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:22px}
+.B .logo{text-decoration:none;font-stretch:62%;font-weight:900;font-size:30px;letter-spacing:.01em;line-height:1;text-transform:uppercase}
+.B .logo span{color:var(--rasp-2)}
+.B nav.m{display:flex;gap:32px}
+.B nav.m a{text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mist)}
+.B nav.m a:hover{color:#fff}
+.B .btn{display:inline-flex;align-items:center;gap:12px;background:var(--rasp);color:#fff;text-decoration:none;padding:17px 26px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:background .25s}
+.B .btn:hover{background:var(--rasp-2)}
+.B .btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.B .btn.ghost:hover{box-shadow:inset 0 0 0 1px #fff;background:transparent}
+.B .hero{position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.B .pane{position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),rgba(196,58,98,.28) calc(100%/6 - 1px) calc(100%/6)),
+             repeating-linear-gradient(0deg,transparent 0 179px,rgba(196,58,98,.2) 179px 180px)}
+.B .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:min(90vh,880px)}
+.B .hero-copy{position:relative;z-index:3;padding-block:64px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.B .hero h1{font-size:clamp(78px,12.5vw,210px);line-height:.82;margin-right:-28%;position:relative}
+.B .hero h1 span{display:block}
+.B .hero h1 .r{color:var(--rasp-2)}
+.B .hero .lede{max-width:38ch;color:var(--mist);font-size:18px}
+.B .hero .act{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.B .hero-photo{position:relative;margin-right:calc(-1 * max(24px,env(safe-area-inset-right,0px)))}
+.B .hero-photo .photo{position:absolute;inset:0;background-position:center 18%}
+.B .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(15,20,41,0) 35%),linear-gradient(0deg,rgba(15,20,41,.6),transparent 35%)}
+.B .credit{position:absolute;right:28px;bottom:26px;z-index:3;text-align:right;display:grid;gap:4px}
+.B .credit b{font-stretch:62%;font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
+.B .credit span{color:var(--mist)}
+.B .ticker{background:var(--rasp);overflow:hidden;white-space:nowrap}
+.B .ticker div{display:inline-flex;gap:48px;padding-block:16px;animation:bTick 40s linear infinite}
+.B .ticker span{font-stretch:62%;font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.02em;display:inline-flex;align-items:center;gap:48px}
+.B .ticker span::after{content:"";width:8px;height:8px;background:#fff;transform:rotate(45deg)}
+@keyframes bTick{to{transform:translateX(-50%)}}
+.B section{padding-block:120px}
+.B .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40ch);gap:40px;align-items:end;margin-bottom:56px}
+.B .sh .meta{grid-column:1/-1;color:var(--rasp-2)}
+.B .sh h2{font-size:clamp(56px,7.6vw,124px);line-height:.86}
+.B .sh p{color:var(--mist)}
+.B .watch{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:0;border:1px solid var(--line)}
+.B .player{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:#000}
+.B .player .photo{position:absolute;inset:0;background-position:center 30%;filter:saturate(.9);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.B .player:hover .photo{transform:scale(1.04)}
+.B .player::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,20,41,.92),rgba(15,20,41,.1) 60%)}
+.B .player .pl{position:absolute;z-index:2;left:32px;bottom:30px;right:32px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.B .player h3{font-stretch:62%;font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.9;text-transform:uppercase;max-width:10em}
+.B .play{width:76px;height:76px;flex:none;border-radius:50%;background:var(--rasp);display:grid;place-items:center;transition:transform .3s}
+.B .play::before{content:"";border-left:20px solid #fff;border-block:12px solid transparent;margin-left:6px}
+.B .player:hover .play{transform:scale(1.08)}
+.B .eps{display:grid;align-content:start}
+.B .ep{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:22px 26px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .25s}
+.B .ep:hover{background:rgba(255,255,255,.05)}
+.B .ep:last-child{border-bottom:0}
+.B .ep .k{color:var(--rasp-2);font-weight:700;font-variant-numeric:tabular-nums}
+.B .ep b{font-weight:600;font-size:17px}
+.B .ep small{display:block;color:var(--mist);font-size:13px;margin-top:2px}
+.B .ep .t{color:var(--mist);font-size:13px;font-variant-numeric:tabular-nums}
+.B .split{background:var(--paper);color:var(--navy);padding:0}
+.B .split .wrap{display:grid;grid-template-columns:1fr 1fr}
+.B .half{padding:96px 56px 96px 0;display:grid;gap:24px;align-content:start}
+.B .half + .half{padding:96px 0 96px 56px;border-left:1px solid rgba(15,20,41,.15)}
+.B .half .meta{color:var(--rasp)}
+.B .half h2{font-size:clamp(48px,5.4vw,88px);line-height:.88}
+.B .half h2 .r{color:var(--rasp)}
+.B .half p{color:#3a4057;max-width:44ch}
+.B .half ol{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid rgba(15,20,41,.15)}
+.B .half li{padding:14px 0;border-bottom:1px solid rgba(15,20,41,.15);display:flex;justify-content:space-between;gap:20px}
+.B .half li span{color:#6a7088;font-size:14px}
+.B .half .btn{justify-self:start}
+.B footer{padding-block:72px 48px;border-top:1px solid var(--line);color:var(--mist);font-size:14px}
+.B footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:clamp(64px,13vw,220px);line-height:.8;color:#fff;letter-spacing:-.01em;margin-bottom:48px}
+.B footer .big span{color:var(--rasp-2)}
+.B footer .cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.B footer b{display:block;color:#fff;margin-bottom:6px;font-weight:600}
+.B .legal{border-top:1px solid var(--line);margin-top:40px;padding-top:22px;font-size:12.5px}
+
+/* =========================================================
+   C · DESK — fintech precision
+   ========================================================= */
+.C{--bg:#fafaf9;--ink:#0d1411;--mute:#5d6762;--line:#e4e7e4;--line-2:#d3d8d4;--green:#1d7448;--green-2:#2b9a62;--tint:#eaf4ee;--signal:#d9a21b;
+  background:var(--bg);color:var(--ink);font-family:"Geist",system-ui,sans-serif;font-size:16px;line-height:1.6}
+.C .mono{font-family:"Geist Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.C header{border-bottom:1px solid var(--line);background:rgba(250,250,249,.9)}
+.C header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.C .who{display:flex;align-items:center;gap:12px;text-decoration:none}
+.C .who .photo{width:36px;height:36px;border-radius:50%;background-position:center 18%;box-shadow:0 0 0 1px var(--line-2)}
+.C .who b{font-weight:600;font-size:15px;display:block;line-height:1.2}
+.C .who small{color:var(--mute);font-size:12.5px}
+.C nav.m{display:flex;gap:4px}
+.C nav.m a{text-decoration:none;font-size:14px;color:var(--mute);padding:8px 12px;border-radius:6px}
+.C nav.m a:hover{background:#f0f2f0;color:var(--ink)}
+.C .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;padding:11px 16px;border-radius:7px;font-size:14px;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .2s}
+.C .btn:hover{background:#26302b}
+.C .btn.g{background:var(--green)}
+.C .btn.g:hover{background:var(--green-2)}
+.C .btn.o{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.C .gridbg{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-position:-1px -1px;
+  -webkit-mask:radial-gradient(ellipse 80% 70% at 30% 30%,#000 30%,transparent 80%);mask:radial-gradient(ellipse 80% 70% at 30% 30%,#000 30%,transparent 80%);position:absolute;inset:0;pointer-events:none}
+.C .hero{position:relative;border-bottom:1px solid var(--line)}
+.C .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;padding-block:88px 96px}
+.C .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);border:1px solid var(--line-2);background:#fff;padding:5px 12px 5px 6px;border-radius:999px}
+.C .badge i{font-style:normal;background:var(--tint);color:var(--green);font-weight:600;font-size:12px;padding:2px 8px;border-radius:999px}
+.C .hero h1{font-size:clamp(44px,5.4vw,78px);line-height:1.02;letter-spacing:-.045em;font-weight:600;margin-top:24px}
+.C .hero h1 span{color:var(--mute)}
+.C .hero .lede{color:var(--mute);font-size:18px;max-width:42ch;margin-top:22px}
+.C .hero .act{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.C .trust{display:flex;gap:28px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap;font-size:13px;color:var(--mute)}
+.C .trust b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+.C .calc{background:#fff;border:1px solid var(--line-2);border-radius:14px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 24px 48px -28px rgba(13,20,17,.28);overflow:hidden}
+.C .calc-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:500}
+.C .calc-h span{color:var(--mute);font-weight:400}
+.C .calc-b{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.C .inputs{padding:18px;border-right:1px solid var(--line);display:grid;gap:18px;align-content:start}
+.C .f{display:grid;gap:6px}
+.C .f label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mute)}
+.C .f label output{color:var(--ink);font-size:13px}
+.C input[type=range]{width:100%;accent-color:var(--green);margin:0}
+.C .seg{display:grid;grid-template-columns:1fr 1fr;background:#f2f4f2;border-radius:7px;padding:3px;gap:3px}
+.C .seg button{border:0;background:transparent;padding:7px;border-radius:5px;font:inherit;font-size:13px;color:var(--mute);cursor:pointer}
+.C .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.C .out{padding:18px;display:grid;gap:12px;align-content:start}
+.C .out .k{font-size:12.5px;color:var(--mute)}
+.C .out .v{font-size:42px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.C .out .v small{font-size:15px;color:var(--mute);font-weight:400;letter-spacing:0}
+.C .chart svg{width:100%;height:auto;display:block}
+.C .chart text{font-family:"Geist Mono",monospace;font-size:9px;fill:#8a938e}
+.C .legend{display:flex;gap:14px;font-size:12px;color:var(--mute)}
+.C .legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:0}
+.C .calc-f{padding:10px 18px;border-top:1px solid var(--line);font-size:11.5px;color:var(--mute);background:#fcfcfb}
+.C section{padding-block:104px;border-bottom:1px solid var(--line)}
+.C .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40ch);gap:40px;align-items:end;margin-bottom:44px}
+.C .sh .k{grid-column:1/-1;font-size:13px;color:var(--green);font-weight:500}
+.C .sh h2{font-size:clamp(34px,3.8vw,52px);letter-spacing:-.04em;line-height:1.05;font-weight:600}
+.C .sh p{color:var(--mute)}
+.C .tbl{overflow-x:auto;border:1px solid var(--line-2);border-radius:12px;background:#fff}
+.C table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+.C th{text-align:left;font-weight:500;color:var(--mute);font-size:12.5px;padding:14px 20px;border-bottom:1px solid var(--line-2);background:#fcfcfb}
+.C td{padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+.C tr:last-child td{border-bottom:0}
+.C tbody tr{transition:background .2s}
+.C tbody tr:hover{background:#f7faf8}
+.C td b{font-weight:600}
+.C td .mono{font-size:13.5px}
+.C .pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#f0f2f0;color:var(--mute)}
+.C .pill.g{background:var(--tint);color:var(--green)}
+.C .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line-2);border-radius:12px;background:#fff;overflow:hidden}
+.C .step{padding:26px 22px;border-right:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.C .step:last-child{border-right:0}
+.C .step .mono{font-size:12px;color:var(--green)}
+.C .step h3{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.C .step p{color:var(--mute);font-size:14.5px}
+.C .cta .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:32px;align-items:center}
+.C .cta .photo{width:120px;height:120px;border-radius:14px;background-position:center 18%}
+.C .cta h2{font-size:clamp(28px,3vw,40px);letter-spacing:-.04em;font-weight:600;line-height:1.1}
+.C .cta p{color:var(--mute);margin-top:8px}
+.C .cta .act{display:flex;gap:10px;flex-wrap:wrap}
+.C footer{padding-block:48px;font-size:13px;color:var(--mute)}
+.C footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.C .legal{max-width:80ch;font-size:12.5px;line-height:1.6}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .A .row{grid-template-columns:60px minmax(0,1fr) minmax(0,1fr) 30px}
+  .A .row .co{display:none}
+  .A .sh,.A .cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .A .sh .sc,.A .cols > .sc{grid-column:1/-1}
+  .C .calc-b{grid-template-columns:1fr}
+  .C .inputs{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .switch .note{display:none}
+  .A header .wrap{grid-template-columns:1fr auto}
+  .A .navl{display:none}
+  .A .wordmark{text-align:left}
+  .A .navr a:not(.ul){display:none}
+  .A .hero,.B .hero .wrap,.C .hero .wrap,.A .band .wrap,.B .watch,.B .split .wrap{grid-template-columns:minmax(0,1fr)}
+  .A .hero-text{padding-right:0;padding-block:48px}
+  .A .hero-photo{min-height:520px;margin-left:calc(-1 * max(24px,env(safe-area-inset-left,0px)))}
+  .A .sh,.A .cols,.B .sh,.C .sh{grid-template-columns:minmax(0,1fr)}
+  .A footer .wrap,.B footer .cols{grid-template-columns:1fr 1fr}
+  .B nav.m{display:none}
+  .B .hero h1{margin-right:0}
+  .B .hero-photo{min-height:520px;margin-left:calc(-1 * max(24px,env(safe-area-inset-left,0px)))}
+  .B .hero-photo::after{background:linear-gradient(0deg,rgba(15,20,41,.7),transparent 40%)}
+  .B .half,.B .half + .half{padding:64px 0;border-left:0}
+  .B .half + .half{border-top:1px solid rgba(15,20,41,.15)}
+  .C nav.m{display:none}
+  .C .steps{grid-template-columns:1fr 1fr}
+  .C .step:nth-child(2){border-right:0}
+  .C .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .C .cta .wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .A .facts{grid-template-columns:1fr;gap:14px}
+  .A .facts div{border:0;margin:0}
+  .A .row{grid-template-columns:36px minmax(0,1fr) 20px}
+  .A .row .kn{display:none}
+  .A section,.B section,.C section{padding-block:72px}
+  .A footer .wrap,.B footer .cols{grid-template-columns:1fr}
+  .B header .btn{display:none}
+  .C .steps{grid-template-columns:1fr}
+  .C .step{border-right:0!important;border-bottom:1px solid var(--line)}
+  .C header .btn{display:none}
+}
+</style>
+
+<div class="switch">
+  <div class="wrap g">
+    <span class="lbl">Derek Goulette · Directions</span>
+    <nav aria-label="Design directions">
+      <a href="#lowcountry" data-dir="lowcountry">A · Lowcountry</a>
+      <a href="#campaign" data-dir="campaign">B · Campaign</a>
+      <a href="#desk" data-dir="desk">C · The Desk</a>
+    </nav>
+    <span class="note">Full homepage drafts. Copy and content are placeholders for review.</span>
+  </div>
+</div>
+
+<!-- ===================== A · LOWCOUNTRY ===================== -->
+<div class="dir A" id="dir-lowcountry">
+  <header><div class="wrap g">
+    <nav class="navl" aria-label="Primary"><a href="#a-index">Neighborhoods</a><a href="#a-how">Lending</a><a href="#a-how">Realtors</a></nav>
+    <a class="wordmark" href="#lowcountry"><b>Derek Goulette</b><span class="sc">Home Lending · Charleston</span></a>
+    <div class="navr"><a href="#a-how">Careers</a><a class="ul" href="#a-foot">Begin pre-approval</a></div>
+  </div></header>
+
+  <div class="wrap g hero">
+    <div class="hero-text">
+      <div>
+        <h1 class="serif">Home lending for <i>the Lowcountry</i>, done properly.</h1>
+        <p class="lede">From a first condo in West Ashley to a deepwater lot on Kiawah, Derek Goulette and his Daniel Island team structure the loan around the life you're building here.</p>
+        <div class="act"><a class="btn" href="#a-foot">Begin pre-approval</a><a class="ul" href="#a-foot">Speak with Derek</a></div>
+      </div>
+      <div class="facts">
+        <div><span class="sc">Role</span><b>Branch Manager</b></div>
+        <div><span class="sc">NMLS</span><b>325427</b></div>
+        <div><span class="sc">Branch</span><b>Daniel Island</b></div>
+      </div>
+    </div>
+    <div class="hero-photo"><div class="photo" role="img" aria-label="Derek Goulette on the marsh"></div><span class="cap">Derek Goulette · Daniel Island marsh</span></div>
+  </div>
+
+  <section id="a-index"><div class="wrap g">
+    <div class="sh"><span class="sc">I. The Index</span><h2 class="serif">Ten places to call home.</h2><p>Derek lends across the Charleston area and knows how each one differs: flood zones, HOAs, new construction, and what sells fast.</p></div>
+    <div class="index">
+      <a class="row" href="#a-foot"><span class="n">01</span><span class="nm">Daniel Island</span><span class="kn">Planned island living, parks and waterfront trails</span><span class="co">32.86° N · 79.91° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">02</span><span class="nm">Mount Pleasant</span><span class="kn">Shem Creek, marsh views, sought-after schools</span><span class="co">32.79° N · 79.86° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">03</span><span class="nm">The Peninsula</span><span class="kn">Historic Charleston singles and carriage houses</span><span class="co">32.78° N · 79.93° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">04</span><span class="nm">West Ashley</span><span class="kn">Established neighborhoods, strong first-home value</span><span class="co">32.80° N · 80.03° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">05</span><span class="nm">James Island</span><span class="kn">Between downtown and Folly Beach</span><span class="co">32.72° N · 79.95° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">06</span><span class="nm">Kiawah Island</span><span class="kn">Oceanfront and golf course estates</span><span class="co">32.61° N · 80.08° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">07</span><span class="nm">Isle of Palms</span><span class="kn">Beachfront homes and second homes</span><span class="co">32.79° N · 79.80° W</span><span class="ar">→</span></a>
+      <a class="row" href="#a-foot"><span class="n">08</span><span class="nm">Summerville</span><span class="kn">Family neighborhoods and new construction</span><span class="co">33.02° N · 80.18° W</span><span class="ar">→</span></a>
+    </div>
+  </div></section>
+
+  <section id="a-how"><div class="wrap g cols">
+    <span class="sc" style="color:var(--gold);padding-top:22px">II. The Practice</span>
+    <div class="col"><span class="sc">For buyers</span><h3>First homes to forever homes</h3><p>Conventional, FHA, VA and down-payment assistance, explained plainly and matched to your plans, not just your credit score.</p><a class="ul" href="#a-foot">Explore buying</a></div>
+    <div class="col"><span class="sc">For the islands</span><h3>Jumbo, luxury and second homes</h3><p>Loans above conforming limits, built for business owners, relocations and coastal properties with flood and wind considerations.</p><a class="ul" href="#a-foot">Explore luxury lending</a></div>
+    <div class="col"><span class="sc">For Realtors</span><h3>A lender your clients will thank you for</h3><p>Strong pre-approvals, proactive updates, and co-branded content for your listings. Derek takes partner calls himself.</p><a class="ul" href="#a-foot">Partner with Derek</a></div>
+  </div></section>
+
+  <section class="band"><div class="wrap g">
+    <blockquote>"Every family I work with gets the same thing: a clear plan, a straight answer, and my cell number."</blockquote>
+    <div class="side"><span class="sc">Derek Goulette, Branch Manager</span><p>The Daniel Island branch is also growing. Experienced loan officers looking for real marketing support and mentorship are welcome to reach out in confidence.</p><a class="btn" href="#a-foot">Careers at the branch</a></div>
+  </div></section>
+
+  <footer id="a-foot"><div class="wrap g">
+    <div><b>Derek Goulette</b>Branch Manager<br>Fairway Home Mortgage</div>
+    <div><b>Office</b>115 Fairchild Street, Suite 310<br>Daniel Island, SC 29492</div>
+    <div><b>Contact</b>949-280-8044<br>derek.goulette@fairwaymc.com</div>
+    <div><b>Clients</b><a class="ul" href="#a-foot">Apply now</a><br><a class="ul" href="#a-foot">Upload documents</a></div>
+    <p class="legal">Derek Goulette, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. Equal Housing Opportunity. This is not a commitment to lend. All loans are subject to credit approval and underwriting. Draft for review.</p>
+  </div></footer>
+</div>
+
+<!-- ===================== B · CAMPAIGN ===================== -->
+<div class="dir B" id="dir-campaign" hidden>
+  <header><div class="wrap g">
+    <a class="logo" href="#campaign">Goulette<span>.</span></a>
+    <nav class="m" aria-label="Primary"><a href="#b-watch">Watch</a><a href="#b-split">Realtors</a><a href="#b-split">Careers</a><a href="#b-foot">Contact</a></nav>
+    <a class="btn" href="#b-foot">Apply now</a>
+  </div></header>
+
+  <div class="hero">
+    <div class="pane" aria-hidden="true"></div>
+    <div class="wrap g">
+      <div class="hero-copy">
+        <span class="meta" style="color:var(--mist)">Charleston, SC · Fairway Home Mortgage · NMLS #325427</span>
+        <div>
+          <h1 class="cond"><span>Let's get</span><span>you</span><span class="r">home.</span></h1>
+          <p class="lede" style="margin-top:32px">Straight answers on rates, programs, and what you can really afford, from a Charleston branch manager who would rather explain it on camera than bury it in fine print.</p>
+          <div class="act"><a class="btn" href="#b-foot">Get pre-approved <span aria-hidden="true">→</span></a><a class="btn ghost" href="#b-watch">Watch the series</a></div>
+        </div>
+      </div>
+      <div class="hero-photo"><div class="photo" role="img" aria-label="Derek Goulette in a raspberry windowpane jacket"></div></div>
+    </div>
+    <div class="credit"><b>Derek Goulette</b><span class="meta">Branch Manager · Daniel Island</span></div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div id="tick"><span>First-time buyers</span><span>VA loans</span><span>Jumbo &amp; luxury</span><span>Investment property</span><span>FHA</span><span>Relocation</span><span>Refinance</span></div></div>
+
+  <section id="b-watch"><div class="wrap g">
+    <div class="sh"><span class="meta">The series · new episode every week</span><h2 class="cond">Mortgage<br>in 60 seconds.</h2><p>Short, direct videos on the questions buyers actually ask. Filmed in Charleston, posted on Instagram, collected here.</p></div>
+    <div class="watch">
+      <a class="player" href="#b-watch" aria-label="Play episode: How much house can you afford?"><div class="photo"></div><div class="pl"><h3>How much house can you actually afford?</h3><span class="play" aria-hidden="true"></span></div></a>
+      <div class="eps">
+        <a class="ep" href="#b-watch"><span class="k">01</span><span><b>How much house can you afford?</b><small>First-time buyers</small></span><span class="t">0:58</span></a>
+        <a class="ep" href="#b-watch"><span class="k">02</span><span><b>Zero down with a VA loan</b><small>Military families</small></span><span class="t">0:54</span></a>
+        <a class="ep" href="#b-watch"><span class="k">03</span><span><b>Flood zones before you offer</b><small>Lowcountry buyers</small></span><span class="t">1:00</span></a>
+        <a class="ep" href="#b-watch"><span class="k">04</span><span><b>Your first rental property</b><small>Investors</small></span><span class="t">0:57</span></a>
+        <a class="ep" href="#b-watch"><span class="k">05</span><span><b>When a refinance pays off</b><small>Homeowners</small></span><span class="t">0:55</span></a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="split" id="b-split"><div class="wrap g">
+    <div class="half">
+      <span class="meta">For Realtors</span>
+      <h2 class="cond">Your buyers,<br><span class="r">handled.</span></h2>
+      <p>Derek's favorite part of the job is working with agents. Partners get a lender who answers, updates, and helps market.</p>
+      <ol><li>Pre-approvals that strengthen offers <span>Day one</span></li><li>Milestone updates without chasing <span>Every file</span></li><li>Co-branded videos for your listings <span>On request</span></li></ol>
+      <a class="btn" href="#b-foot">Become a partner</a>
+    </div>
+    <div class="half">
+      <span class="meta">Careers</span>
+      <h2 class="cond">Three seats<br><span class="r">open.</span></h2>
+      <p>The Daniel Island branch is adding loan officers. Bring your book; get marketing that's handled for you and a branch manager who still produces.</p>
+      <ol><li>Content and social support <span>Done for you</span></li><li>Fairway's product shelf <span>Full</span></li><li>Direct mentorship <span>Weekly</span></li></ol>
+      <a class="btn" href="#b-foot">Talk in confidence</a>
+    </div>
+  </div></section>
+
+  <footer id="b-foot"><div class="wrap g">
+    <div class="big">Derek<span>.</span><br>Goulette</div>
+    <div class="cols">
+      <div><b>Office</b>115 Fairchild St, Suite 310<br>Daniel Island, SC 29492</div>
+      <div><b>Call</b>949-280-8044</div>
+      <div><b>Email</b>derek.goulette@fairwaymc.com</div>
+      <div><b>Follow</b>@derekgoulette</div>
+    </div>
+    <p class="legal">Derek Goulette, Branch Manager, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. Equal Housing Opportunity. This is not a commitment to lend. All loans subject to credit approval. Draft for review.</p>
+  </div></footer>
+</div>
+
+<!-- ===================== C · DESK ===================== -->
+<div class="dir C" id="dir-desk" hidden>
+  <header><div class="wrap g">
+    <a class="who" href="#desk"><span class="photo" aria-hidden="true"></span><span><b>Derek Goulette</b><small>Branch Manager · NMLS #325427</small></span></a>
+    <nav class="m" aria-label="Primary"><a href="#c-calc">Calculator</a><a href="#c-programs">Loan programs</a><a href="#c-process">Process</a><a href="#c-cta">Realtors</a></nav>
+    <a class="btn g" href="#c-cta">Apply now</a>
+  </div></header>
+
+  <div class="hero" id="c-calc">
+    <div class="gridbg" aria-hidden="true"></div>
+    <div class="wrap g">
+      <div>
+        <span class="badge"><i>Charleston, SC</i>Fairway Home Mortgage · Daniel Island branch</span>
+        <h1>Know your numbers <span>before you fall for the house.</span></h1>
+        <p class="lede">Estimate your payment, compare loan programs side by side, and see exactly where your money goes. When you're ready, Derek reviews it with you personally.</p>
+        <div class="act"><a class="btn g" href="#c-cta">See what I qualify for</a><a class="btn o" href="#c-programs">Compare programs</a></div>
+        <div class="trust"><span><b>Branch Manager</b>Daniel Island</span><span><b>FHA · VA · Jumbo</b>Full product shelf</span><span><b>NMLS #325427</b>Licensed lender</span></div>
+      </div>
+      <div class="calc">
+        <div class="calc-h">Payment estimator <span class="mono">example rates</span></div>
+        <div class="calc-b">
+          <div class="inputs">
+            <div class="f"><label for="c-price">Home price <output class="mono" id="c-o-price">$675,000</output></label><input id="c-price" type="range" min="200000" max="2000000" step="5000" value="675000"></div>
+            <div class="f"><label for="c-down">Down payment <output class="mono" id="c-o-down">20%</output></label><input id="c-down" type="range" min="0" max="40" step="1" value="20"></div>
+            <div class="f"><label for="c-rate">Interest rate <output class="mono" id="c-o-rate">6.50%</output></label><input id="c-rate" type="range" min="4" max="9" step="0.125" value="6.5"></div>
+            <div class="f"><label>Term</label><div class="seg" role="group" aria-label="Term"><button type="button" id="c-30" aria-pressed="true">30 years</button><button type="button" id="c-15" aria-pressed="false">15 years</button></div></div>
+          </div>
+          <div class="out">
+            <span class="k">Monthly principal &amp; interest</span>
+            <span class="v mono" id="c-pmt">$3,413<small>/mo</small></span>
+            <div class="chart" id="c-chart" aria-label="Loan balance over time"></div>
+            <div class="legend"><span><i style="background:var(--green)"></i>Balance</span><span><i style="background:var(--signal)"></i>Interest paid</span></div>
+          </div>
+        </div>
+        <div class="calc-f">Illustration only. Excludes taxes, insurance, HOA and mortgage insurance. Not a rate quote or commitment to lend.</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="c-programs"><div class="wrap g">
+    <div class="sh"><span class="k">Loan programs</span><h2>Six programs, compared honestly.</h2><p>Typical requirements at a glance. Your actual options depend on credit, income, property and underwriting.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Program</th><th>Down payment from</th><th>Mortgage insurance</th><th>Best for</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><b>Conventional</b></td><td class="mono">3%</td><td>Required under 20% down; removable later</td><td>Buyers with solid credit</td><td><span class="pill g">Most common</span></td></tr>
+        <tr><td><b>FHA</b></td><td class="mono">3.5%</td><td>Upfront and monthly premium</td><td>First-time buyers, credit rebuilding</td><td><span class="pill">Flexible credit</span></td></tr>
+        <tr><td><b>VA</b></td><td class="mono">0%</td><td>None (funding fee may apply)</td><td>Veterans, active duty, eligible spouses</td><td><span class="pill g">No down payment</span></td></tr>
+        <tr><td><b>Jumbo</b></td><td class="mono">Varies</td><td>Typically none</td><td>Homes above conforming limits</td><td><span class="pill">Luxury &amp; islands</span></td></tr>
+        <tr><td><b>Investment / DSCR</b></td><td class="mono">Varies</td><td>Typically none</td><td>Rentals qualified on property income</td><td><span class="pill">Investors</span></td></tr>
+        <tr><td><b>Refinance</b></td><td class="mono">n/a</td><td>Depends on equity</td><td>Lower payment or cash out</td><td><span class="pill">Homeowners</span></td></tr>
+      </tbody>
+    </table></div>
+  </div></section>
+
+  <section id="c-process"><div class="wrap g">
+    <div class="sh"><span class="k">Process</span><h2>Four steps, one point of contact.</h2><p>You and your Realtor always know what's happening and what's next.</p></div>
+    <div class="steps">
+      <div class="step"><span class="mono">01 / Consult</span><h3>15-minute call</h3><p>Goals, budget and timeline. No forms yet.</p></div>
+      <div class="step"><span class="mono">02 / Pre-approve</span><h3>Documents and review</h3><p>Derek reviews your file and issues a pre-approval you can shop with.</p></div>
+      <div class="step"><span class="mono">03 / Contract</span><h3>Offer accepted</h3><p>Appraisal, underwriting and insurance, with updates at every milestone.</p></div>
+      <div class="step"><span class="mono">04 / Close</span><h3>Keys</h3><p>Final review, signing, and the best part.</p></div>
+    </div>
+  </div></section>
+
+  <section class="cta" id="c-cta" style="border-bottom:0"><div class="wrap g">
+    <div class="photo" role="img" aria-label="Derek Goulette"></div>
+    <div><h2>Ready to run real numbers?</h2><p>Derek and his team answer the phone. 949-280-8044 · derek.goulette@fairwaymc.com</p></div>
+    <div class="act"><a class="btn g" href="#c-cta">Apply now</a><a class="btn o" href="#c-cta">Realtor partners</a></div>
+  </div></section>
+
+  <footer style="border-top:1px solid var(--line)"><div class="wrap g">
+    <p class="legal">Derek Goulette, Branch Manager, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. 115 Fairchild Street, Suite 310, Daniel Island, SC 29492. Equal Housing Opportunity. This is not a commitment to lend. All loans subject to credit approval. Draft for review.</p>
+    <span class="mono">Daniel Island · 32.86° N</span>
+  </div></footer>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const names=['lowcountry','campaign','desk'];
+  const links=[...document.querySelectorAll('.switch a')];
+  function show(){
+    const h=location.hash.slice(1); let cur=names.includes(h)?h:null;
+    if(!cur){ // in-page anchors keep the current direction
+      const owner=h&&document.getElementById(h)?.closest('.dir'); cur=owner?owner.id.replace('dir-',''):(show.cur||'lowcountry');
+    }
+    const changed=cur!==show.cur; show.cur=cur;
+    names.forEach(n=>$('dir-'+n).hidden=n!==cur);
+    links.forEach(a=>a.setAttribute('aria-current',a.dataset.dir===cur));
+    if(changed&&names.includes(h))scrollTo(0,0);
+  }
+  addEventListener('hashchange',show); show();
+
+  const t=$('tick'); t.innerHTML+=t.innerHTML;
+
+  // Desk calculator with balance chart
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  let term=30;
+  function draw(loan,r,n,pmt){
+    const W=300,H=120,pl=30,pb=16,pt=6,pr=6, years=n/12;
+    let bal=loan,int=0; const B=[[0,loan]],I=[[0,0]];
+    for(let m=1;m<=n;m++){const i=bal*r;int+=i;bal=Math.max(0,bal-(pmt-i));if(m%12===0){B.push([m/12,bal]);I.push([m/12,int]);}}
+    const top=Math.max(loan,int)*1.05;
+    const x=y=>pl+(y/years)*(W-pl-pr), y=v=>pt+(1-v/top)*(H-pt-pb);
+    const path=a=>a.map((p,i)=>(i?'L':'M')+x(p[0]).toFixed(1)+' '+y(p[1]).toFixed(1)).join(' ');
+    const ticks=[0,.5,1].map(f=>top*f);
+    const fmt=v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'M':'$'+Math.round(v/1e3)+'K';
+    const xt=years===30?[0,10,20,30]:[0,5,10,15];
+    const last=I[I.length-1];
+    $('c-chart').innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Balance falls to zero over '+years+' years; total interest '+money(int)+'">'+
+      ticks.map(v=>'<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#e4e7e4" stroke-width="1"/><text x="'+(pl-4)+'" y="'+(y(v)+3)+'" text-anchor="end">'+fmt(v)+'</text>').join('')+
+      xt.map(v=>'<text x="'+x(v)+'" y="'+(H-3)+'" text-anchor="middle">'+v+'y</text>').join('')+
+      '<path d="'+path(B)+' L'+x(years)+' '+y(0)+' L'+x(0)+' '+y(0)+'Z" fill="#1d7448" fill-opacity=".1"/>'+
+      '<path d="'+path(B)+'" fill="none" stroke="#1d7448" stroke-width="2"/>'+
+      '<path d="'+path(I)+'" fill="none" stroke="#d9a21b" stroke-width="2"/>'+
+      '<circle cx="'+x(last[0])+'" cy="'+y(last[1])+'" r="3.5" fill="#d9a21b"/>'+
+      '<text x="'+(x(last[0])-6)+'" y="'+(y(last[1])-7)+'" text-anchor="end" style="fill:#0d1411;font-weight:500">'+fmt(last[1])+' interest</text></svg>';
+  }
+  function calc(){
+    const price=+$('c-price').value,dp=+$('c-down').value,rate=+$('c-rate').value;
+    const loan=price*(1-dp/100),r=rate/1200,n=term*12,pmt=r?loan*r/(1-Math.pow(1+r,-n)):loan/n;
+    $('c-o-price').textContent=money(price); $('c-o-down').textContent=dp+'%';
+    $('c-o-rate').textContent=rate.toFixed(3).replace(/0$/,'')+'%';
+    $('c-pmt').innerHTML=money(pmt)+'<small>/mo</small>';
+    draw(loan,r,n,pmt);
+  }
+  ['c-price','c-down','c-rate'].forEach(id=>$(id).addEventListener('input',calc));
+  [['c-30',30],['c-15',15]].forEach(([id,t])=>$(id).addEventListener('click',()=>{term=t;$('c-30').setAttribute('aria-pressed',t===30);$('c-15').setAttribute('aria-pressed',t===15);calc();}));
+  calc();
+})();
+</script>
