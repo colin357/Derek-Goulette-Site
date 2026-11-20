@@ -343,7 +343,10 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
 .ig .wrap{position:relative;z-index:2}
 .ig-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px;align-items:center}
 .ig-copy{display:grid;gap:26px}
-.ig-copy h2{font-size:clamp(40px,10.5vw,120px);overflow-wrap:anywhere}
+.ig-copy{container-type:inline-size}
+/* "@derekgoulette" is ~6.8em wide: size it to the column so it always fits on one line */
+.ig-copy h2{font-size:clamp(28px,7vw,110px);font-size:min(110px,14cqi)}
+.ig-copy h2 .r{white-space:nowrap}
 .ig-card{display:grid;gap:22px;background:#fff;color:var(--ink);padding:32px;text-decoration:none;box-shadow:18px 18px 0 var(--rasp);transition:transform .3s ease,box-shadow .3s ease}
 .ig-card:hover{transform:translate(-4px,-4px);box-shadow:22px 22px 0 var(--rasp-2)}
 .ig-top{display:flex;align-items:center;gap:16px}
