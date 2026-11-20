@@ -1,0 +1,50 @@
+<!--{"title": "Mortgage Payment Calculator · Derek Goulette · Charleston, SC", "desc": "Estimate your monthly mortgage payment, total interest, and loan balance over time for a Charleston home. From Derek Goulette at Fairway Home Mortgage.", "nav": "calculator"}-->
+<section class="phero">
+  <div class="pane soft" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="meta">Payment calculator</span>
+    <h1 class="cond">Run the<br><span class="r">numbers.</span></h1>
+    <p class="lede">See an estimated payment, how much interest you'd pay over the loan, and how fast the balance comes down. Then let Derek turn it into a real plan.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="calc" data-calc>
+      <div class="calc-in">
+        <div class="field"><label for="c-price">Home price <output data-c="o-price">$675,000</output></label><input id="c-price" data-c="price" type="range" min="150000" max="3000000" step="5000" value="675000"></div>
+        <div class="field"><label for="c-down">Down payment <output data-c="o-down">20%</output></label><input id="c-down" data-c="down" type="range" min="0" max="50" step="1" value="20"></div>
+        <div class="field"><label for="c-rate">Example rate <output data-c="o-rate">6.50%</output></label><input id="c-rate" data-c="rate" type="range" min="3" max="10" step="0.125" value="6.5"></div>
+        <div class="field"><span class="lbl">Term</span><div class="seg" role="group" aria-label="Loan term"><button type="button" data-term="30" aria-pressed="true">30 years</button><button type="button" data-term="15" aria-pressed="false">15 years</button></div></div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <span class="meta muted">Est. principal &amp; interest</span>
+        <div class="big" data-c="pmt">$3,413<small> /MO</small></div>
+        <div class="kv"><div><span>Loan amount</span><b data-c="loan">$540,000</b></div><div><span>Total interest</span><b data-c="interest">$688,746</b></div><div><span>Total paid</span><b data-c="total">$1,228,746</b></div></div>
+        <div class="chart" data-c="chart"></div>
+        <div class="legend"><span><i style="background:#c43a62"></i>Loan balance</span><span><i style="background:#c9d3e0"></i>Interest paid</span></div>
+      </div>
+    </div>
+    <p class="fine">For illustration only. Principal and interest only; property taxes, homeowners and flood insurance, HOA dues and mortgage insurance are not included. Rates shown are examples, not a quote, an offer, or a commitment to lend. All loans subject to credit approval.</p>
+  </div>
+</section>
+
+<section class="sec rule-top">
+  <div class="wrap">
+    <div class="sh"><span class="meta">Beyond the payment</span><h2 class="cond h-l">What the<br>calculator <span class="r">misses.</span></h2><p>The real monthly cost of a Charleston home has a few more lines. Derek builds all of them into your plan.</p></div>
+    <div class="feats four">
+      <div class="feat"><span class="k">01</span><h3>Property taxes</h3><p>South Carolina taxes primary homes at a lower assessment ratio than second homes and rentals, which can change your payment a lot.</p></div>
+      <div class="feat"><span class="k">02</span><h3>Flood &amp; wind</h3><p>Depending on the flood zone and how close you are to the coast, insurance can be a meaningful share of the payment.</p></div>
+      <div class="feat"><span class="k">03</span><h3>HOA dues</h3><p>Many Lowcountry neighborhoods have HOAs. Some include amenities and exterior maintenance; some don't.</p></div>
+      <div class="feat"><span class="k">04</span><h3>Mortgage insurance</h3><p>Under 20% down on conventional, or any FHA loan, adds mortgage insurance. VA loans have none.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta rasp">
+  <div class="pane" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="cond">Make it<br>a real number.</h2>
+    <div class="acts"><a class="btn white" data-link="apply" href="contact.html#apply">Get pre-approved <span class="arr" aria-hidden="true">→</span></a><a class="btn navy" href="contact.html">Talk to Derek</a></div>
+  </div>
+</section>
