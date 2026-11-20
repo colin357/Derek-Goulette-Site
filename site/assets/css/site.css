@@ -1,23 +1,24 @@
 /* Derek Goulette — "Campaign" design system
-   Marsh green and brass, condensed uppercase display type,
+   Raspberry from Derek's windowpane jacket on a light ground with navy bands, condensed uppercase display type,
    hairline rules and sharp corners. Windowpane grid lines are the signature detail. */
 :root{
-  /* Palette: Marsh & Brass. Every color on the site comes from these tokens.
-     Swap the values here to re-color the whole site. */
-  --bg:#0e1c16; --bg-2:#13251d; --bg-3:#1b3127; --bg-rgb:14 28 22;   /* dark surfaces */
-  --fg:#fff; --fg-rgb:255 255 255; --mist:#cdd8cf; --mist-2:#8ea295;                     /* text on dark */
-  --accent:#b8913f; --accent-2:#d3ad5c; --accent-deep:#94742f;     /* brand accent */
-  --accent-rgb:184 145 63; --accent-2-rgb:211 173 92;
-  --on-accent:#0e1c16;                                                /* text on accent */
-  --accent-paper:#8a6a25;                                          /* accent on light sections */
-  --paper:#f1f1ec; --paper-2:#e5e5dd;                              /* light sections */
-  --ink:#0e1c16; --ink-rgb:14 28 22; --ink-mute:#47574d; --ink-soft:#66766c;           /* text on light */
+  /* Palette: Raspberry Light. Every color on the site comes from these tokens.
+     Swap the values here to re-color the whole site (more options in concepts/palettes). */
+  --bg:#f6f4f1; --bg-2:#eeebe6; --bg-3:#e4e0d9; --bg-rgb:246 244 241;            /* main (light) surfaces */
+  --fg:#0f1429; --fg-rgb:15 20 41; --mist:#454b63; --mist-2:#6c7187;            /* text on main surfaces */
+  --accent:#a8214b; --accent-2:#a8214b; --accent-deep:#8e1b3f;                    /* raspberry */
+  --accent-rgb:168 33 75; --accent-2-rgb:168 33 75;
+  --on-accent:#fff;                                                               /* text on raspberry */
+  --accent-paper:#ec7d9c;                                                         /* raspberry on navy bands */
+  --paper:#0f1429; --paper-2:#161c38;                                             /* contrast bands (navy) */
+  --ink:#f6f4f1; --ink-rgb:246 244 241; --ink-mute:#c3c9d8; --ink-soft:#949bb2;  /* text on navy bands */
+  --card:#fff; --card-ink:#0f1429; --card-mute:#454b63; --card-soft:#6c7187;     /* white cards (Instagram) */
   --line:rgb(var(--fg-rgb) / .14); --line-ink:rgb(var(--ink-rgb) / .15);
   --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --wrap:1320px;
   --gut:max(24px,env(safe-area-inset-left,0px));
   --gut-r:max(24px,env(safe-area-inset-right,0px));
-  color-scheme:dark;
+  color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -65,7 +66,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn:hover{background:var(--accent-2)}
 .btn .arr{transition:transform .25s}
 .btn:hover .arr{transform:translateX(4px)}
-.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px rgb(var(--fg-rgb) / .4)}
+.btn.ghost{color:var(--fg);background:transparent;box-shadow:inset 0 0 0 1px rgb(var(--fg-rgb) / .4)}
 .btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--fg)}
 .paper .btn.ghost{box-shadow:inset 0 0 0 1px rgb(var(--ink-rgb) / .4);color:var(--ink)}
 .paper .btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
@@ -352,16 +353,16 @@ tbody tr:hover{background:rgb(var(--accent-rgb) / .05)}
 /* "@derekgoulette" is ~6.8em wide: size it to the column so it always fits on one line */
 .ig-copy h2{font-size:clamp(28px,7vw,110px);font-size:min(110px,14cqi)}
 .ig-copy h2 .r{white-space:nowrap}
-.ig-card{display:grid;gap:22px;background:#fff;color:var(--ink);padding:32px;text-decoration:none;box-shadow:18px 18px 0 var(--accent);transition:transform .3s ease,box-shadow .3s ease}
+.ig-card{display:grid;gap:22px;background:var(--card);color:var(--card-ink);padding:32px;text-decoration:none;box-shadow:18px 18px 0 var(--accent);transition:transform .3s ease,box-shadow .3s ease}
 .ig-card:hover{transform:translate(-4px,-4px);box-shadow:22px 22px 0 var(--accent-2)}
 .ig-top{display:flex;align-items:center;gap:16px}
 .ig-ring{width:76px;height:76px;flex:none;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,var(--accent),var(--accent-2),color-mix(in srgb,var(--accent-2) 40%,#fff),var(--accent))}
 .ig-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid #fff}
 .ig-id{display:grid;gap:2px;min-width:0}
 .ig-id b{font-weight:700;font-size:19px;overflow-wrap:anywhere}
-.ig-id span{color:var(--ink-soft);font-size:14px}
-.ig-glyph{width:28px;height:28px;margin-left:auto;color:var(--accent-paper);flex:none}
-.ig-bio{color:var(--ink-mute);font-size:15px;line-height:1.6}
+.ig-id span{color:var(--card-soft);font-size:14px}
+.ig-glyph{width:28px;height:28px;margin-left:auto;color:var(--accent);flex:none}
+.ig-bio{color:var(--card-mute);font-size:15px;line-height:1.6}
 .ig-follow{display:block;text-align:center;background:var(--accent);color:var(--on-accent);padding:13px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:background .25s}
 .ig-card:hover .ig-follow{background:var(--accent-2)}
 @media (max-width:920px){.ig-grid{grid-template-columns:minmax(0,1fr)}.ig-card{max-width:440px;margin-right:12px;box-shadow:12px 12px 0 var(--accent)}}
