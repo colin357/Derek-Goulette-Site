@@ -124,15 +124,17 @@ const SITE = {
     const ticks = [0, 0.25, 0.5, 0.75, 1].map((f) => top * f);
     const xt = term === 30 ? [0, 5, 10, 15, 20, 25, 30] : [0, 3, 6, 9, 12, 15];
     const end = E[E.length - 1];
+    const css = getComputedStyle(el), c = (v) => css.getPropertyValue(v).trim();
+    const bal_c = c("--accent-2"), eq_c = c("--mist"), fg_c = c("--fg");
     el.innerHTML =
       '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Loan balance falls to zero over ' + term + " years while your home equity grows to " + money(price) + '">' +
-      ticks.map((v) => '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="rgba(255,255,255,.09)"/><text x="' + (pl - 8) + '" y="' + (y(v) + 3) + '" text-anchor="end">' + compact(v) + "</text>").join("") +
+      ticks.map((v) => '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="rgb(255 255 255 / .09)"/><text x="' + (pl - 8) + '" y="' + (y(v) + 3) + '" text-anchor="end">' + compact(v) + "</text>").join("") +
       xt.map((v) => '<text x="' + x(v) + '" y="' + (H - 4) + '" text-anchor="middle">' + (v ? v + "Y" : "") + "</text>").join("") +
-      '<path d="' + path(B) + " L" + x(term) + " " + y(0) + " L" + x(0) + " " + y(0) + 'Z" fill="#c43a62" fill-opacity=".14"/>' +
-      '<path d="' + path(B) + '" fill="none" stroke="#c43a62" stroke-width="2.5"/>' +
-      '<path d="' + path(E) + '" fill="none" stroke="#c9d3e0" stroke-width="2.5"/>' +
-      '<circle cx="' + x(end[0]) + '" cy="' + y(end[1]) + '" r="4.5" fill="#c9d3e0"/>' +
-      '<text x="' + (x(end[0]) - 10) + '" y="' + (y(end[1]) - 10) + '" text-anchor="end" style="fill:#fff;font-weight:700;font-size:11px">' + compact(end[1]) + " EQUITY</text></svg>";
+      '<path d="' + path(B) + " L" + x(term) + " " + y(0) + " L" + x(0) + " " + y(0) + 'Z" fill="' + bal_c + '" fill-opacity=".14"/>' +
+      '<path d="' + path(B) + '" fill="none" stroke="' + bal_c + '" stroke-width="2.5"/>' +
+      '<path d="' + path(E) + '" fill="none" stroke="' + eq_c + '" stroke-width="2.5"/>' +
+      '<circle cx="' + x(end[0]) + '" cy="' + y(end[1]) + '" r="4.5" fill="' + eq_c + '"/>' +
+      '<text x="' + (x(end[0]) - 10) + '" y="' + (y(end[1]) - 10) + '" text-anchor="end" style="fill:' + fg_c + ';font-weight:700;font-size:11px">' + compact(end[1]) + " EQUITY</text></svg>";
   }
 
   /* ---------- Forms ---------- */

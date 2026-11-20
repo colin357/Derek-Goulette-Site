@@ -1,0 +1,22 @@
+/* Preview-only palette options. Each block overrides the tokens in site.css. */
+:root[data-palette="marsh"]{--bg:#0e1c16;--bg-2:#13251d;--bg-3:#1b3127;--bg-rgb:14 28 22;--mist:#cdd8cf;--mist-2:#8ea295;
+  --accent:#b8913f;--accent-2:#d3ad5c;--accent-deep:#94742f;--accent-rgb:184 145 63;--accent-2-rgb:211 173 92;--on-accent:#0e1c16;--accent-paper:#8a6a25;
+  --paper:#f1f1ec;--paper-2:#e5e5dd;--ink:#0e1c16;--ink-mute:#47574d;--ink-soft:#66766c}
+:root[data-palette="harbor"]{--bg:#0a1d29;--bg-2:#0f2635;--bg-3:#163243;--bg-rgb:10 29 41;--mist:#cfe0e8;--mist-2:#88a4b3;
+  --accent:#cf5537;--accent-2:#ec7556;--accent-deep:#b2452b;--accent-rgb:207 85 55;--accent-2-rgb:236 117 86;--on-accent:#fff;--accent-paper:#b8442a;
+  --paper:#f2f5f6;--paper-2:#e3e9ec;--ink:#0a1d29;--ink-mute:#43586a;--ink-soft:#66798a}
+:root[data-palette="haint"]{--bg:#191714;--bg-2:#211e1a;--bg-3:#2b2721;--bg-rgb:25 23 20;--mist:#ddd5ca;--mist-2:#a1978a;
+  --accent:#7cbcb4;--accent-2:#9ad2cb;--accent-deep:#5a9a92;--accent-rgb:124 188 180;--accent-2-rgb:154 210 203;--on-accent:#191714;--accent-paper:#2e6f68;
+  --paper:#f1eee8;--paper-2:#e5e0d7;--ink:#191714;--ink-mute:#534c44;--ink-soft:#746b61}
+:root[data-palette="regatta"]{--bg:#0c1530;--bg-2:#121d3d;--bg-3:#1a274d;--bg-rgb:12 21 48;--mist:#d3dbea;--mist-2:#8e9bb8;
+  --accent:#2f6fe0;--accent-2:#5b8ff0;--accent-deep:#2457b5;--accent-rgb:47 111 224;--accent-2-rgb:91 143 240;--on-accent:#fff;--accent-paper:#2457b5;
+  --paper:#f3f5f9;--paper-2:#e4e9f2;--ink:#0c1530;--ink-mute:#465270;--ink-soft:#67728d}
+
+/* Switcher */
+.pal{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:300;background:#fff;color:#111;
+  font:600 12px/1.2 system-ui,-apple-system,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.35);display:flex;align-items:center;gap:4px;padding:6px;max-width:calc(100vw - 24px);overflow-x:auto}
+.pal span{padding:0 8px 0 6px;color:#666;white-space:nowrap;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px}
+.pal button{display:flex;align-items:center;gap:8px;border:0;background:transparent;padding:7px 10px;cursor:pointer;white-space:nowrap;font:inherit;color:#333}
+.pal button i{display:inline-flex;width:28px;height:16px;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.pal button i b{flex:1}
+.pal button[aria-pressed="true"]{background:#111;color:#fff}
