@@ -92,6 +92,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
 .logo{text-decoration:none;font-stretch:62%;font-weight:900;font-size:30px;letter-spacing:.01em;line-height:1;text-transform:uppercase;display:inline-flex;align-items:baseline}
 .logo span{color:var(--accent-2)}
+/* Header lockup: Derek's name | Fairway Home Mortgage logo (logo used as supplied, black on transparent) */
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;flex:none;min-width:0}
+.brand .logo{font-size:26px;white-space:nowrap}
+.brand-rule{width:1px;height:34px;background:var(--line);flex:none}
+.fw-logo{height:38px;width:auto;flex:none}
 .main-nav{display:flex;gap:30px;align-items:center}
 .main-nav a{text-decoration:none;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mist);position:relative;padding-block:6px}
 .main-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent-2);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
@@ -375,6 +380,8 @@ tbody tr:hover{background:rgb(var(--accent-rgb) / .05)}
 }
 
 /* ---------- Responsive ---------- */
+/* The name + Fairway lockup needs the room: use the menu button below 1100px */
+@media (max-width:1100px){.main-nav,.hdr-acts .btn{display:none}.menu-btn{display:block}}
 @media (max-width:1100px){
   .main-nav{gap:20px}
   .fcols{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -407,6 +414,10 @@ tbody tr:hover{background:rgb(var(--accent-rgb) / .05)}
 }
 @media (max-width:600px){
   body{font-size:16px}
+  .brand{gap:10px}
+  .brand .logo{font-size:19px}
+  .brand-rule{height:26px}
+  .fw-logo{height:27px}
   .sec{padding-block:80px}
   .prog{grid-template-columns:36px minmax(0,1fr) 24px;gap:16px}
   .prog .dn{display:none}

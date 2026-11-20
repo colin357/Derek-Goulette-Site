@@ -44,7 +44,7 @@ const SITE = {
     btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
     panel.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
     addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
-    addEventListener("resize", () => { if (innerWidth > 920) set(false); });
+    addEventListener("resize", () => { if (innerWidth > 1100) set(false); });
   }
 
   /* ---------- Hero scroll effect ---------- */
