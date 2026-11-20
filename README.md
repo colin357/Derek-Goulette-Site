@@ -41,4 +41,6 @@ concepts/             earlier design explorations (not deployed)
 
 ## Hosting
 
-Any static host works (Netlify, Vercel, Cloudflare Pages, GitHub Pages). Set the publish directory to `site/` and point the 404 page at `site/404.html`.
+**Vercel:** `vercel.json` already sets the output directory to `site/`, so import the repo and deploy with no extra settings (Framework Preset: Other). `site/404.html` is used automatically for missing pages.
+
+Other static hosts (Netlify, Cloudflare Pages, GitHub Pages): set the publish directory to `site/`.
