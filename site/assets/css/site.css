@@ -1,17 +1,17 @@
 /* Derek Goulette — "Campaign" design system
-   Navy cloth, raspberry from the windowpane jacket, condensed uppercase display type,
+   Marsh green and brass, condensed uppercase display type,
    hairline rules and sharp corners. Windowpane grid lines are the signature detail. */
 :root{
-  /* Palette — every color on the site comes from these tokens.
+  /* Palette: Marsh & Brass. Every color on the site comes from these tokens.
      Swap the values here to re-color the whole site. */
-  --bg:#0f1429; --bg-2:#161c38; --bg-3:#1f2647; --bg-rgb:15 20 41;   /* dark surfaces */
-  --fg:#fff; --mist:#c9d3e0; --mist-2:#8f9ab0;                     /* text on dark */
-  --accent:#a8214b; --accent-2:#c43a62; --accent-deep:#8e1b3f;     /* brand accent */
-  --accent-rgb:168 33 75; --accent-2-rgb:196 58 98;
-  --on-accent:#fff;                                                /* text on accent */
-  --accent-paper:#a8214b;                                          /* accent on light sections */
-  --paper:#f4f3f1; --paper-2:#eae8e4;                              /* light sections */
-  --ink:#0f1429; --ink-mute:#4a5068; --ink-soft:#6a7088;           /* text on light */
+  --bg:#0e1c16; --bg-2:#13251d; --bg-3:#1b3127; --bg-rgb:14 28 22;   /* dark surfaces */
+  --fg:#fff; --mist:#cdd8cf; --mist-2:#8ea295;                     /* text on dark */
+  --accent:#b8913f; --accent-2:#d3ad5c; --accent-deep:#94742f;     /* brand accent */
+  --accent-rgb:184 145 63; --accent-2-rgb:211 173 92;
+  --on-accent:#0e1c16;                                                /* text on accent */
+  --accent-paper:#8a6a25;                                          /* accent on light sections */
+  --paper:#f1f1ec; --paper-2:#e5e5dd;                              /* light sections */
+  --ink:#0e1c16; --ink-mute:#47574d; --ink-soft:#66766c;           /* text on light */
   --line:rgb(255 255 255 / .14); --line-ink:rgb(var(--bg-rgb) / .15);
   --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --wrap:1320px;
