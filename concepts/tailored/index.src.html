@@ -1,0 +1,541 @@
+<title>Derek Goulette Tailored</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Concept: the site is cut from Derek's own windowpane jacket.
+   Raspberry plaid + navy cloth, tailor's chalk annotations, a tape-measure calculator,
+   loan programs as a fabric swatch book, a sewn-in care label for compliance.
+   Single deliberate dark world (navy cloth). */
+:root{
+  --navy:#121733; --navy-2:#1a2047; --navy-3:#252c5c;
+  --rasp:#a8234c; --rasp-d:#7c1838; --blush:#f2c9d5;
+  --chalk:#eef0f3; --chalk-dim:#b9bfd0; --thread:#e9c34a; --sky:#c8d8e6;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --twill:repeating-linear-gradient(45deg,rgba(255,255,255,.028) 0 2px,transparent 2px 5px);
+  --pane:120px;
+  --hs:url("data:image/jpeg;base64,__IMG__");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy);background-image:var(--twill);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--rasp);color:#fff}
+a{color:inherit}
+:focus-visible{outline:2px dashed var(--thread);outline-offset:4px}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:400}
+p{margin:0}
+.in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.stitch{border:0;height:0;border-top:2px dashed rgba(238,240,243,.28);margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:15px 22px;border-radius:2px;cursor:pointer;border:0;transition:transform .2s ease,box-shadow .2s ease}
+.btn-rasp{background:var(--rasp);color:#fff;box-shadow:0 0 0 1px var(--rasp),inset 0 0 0 4px var(--rasp),inset 0 0 0 5px rgba(255,255,255,.45)}
+.btn-chalk{background:transparent;color:var(--chalk);box-shadow:inset 0 0 0 1.5px var(--chalk)}
+.btn:hover{transform:translateY(-2px)}
+.btn-rasp:hover{box-shadow:0 0 0 1px var(--rasp),inset 0 0 0 4px var(--rasp),inset 0 0 0 5px #fff,0 10px 24px -10px var(--rasp)}
+
+/* ---------- Plaid cloth ---------- */
+.plaid{background-color:var(--rasp);background-image:
+  repeating-linear-gradient(90deg,transparent 0 calc(var(--pane) - 3px),rgba(18,23,51,.72) calc(var(--pane) - 3px) var(--pane)),
+  repeating-linear-gradient(0deg,transparent 0 calc(var(--pane) - 3px),rgba(18,23,51,.6) calc(var(--pane) - 3px) var(--pane)),
+  repeating-linear-gradient(90deg,transparent 0 calc(var(--pane)/2 - 1px),rgba(18,23,51,.16) calc(var(--pane)/2 - 1px) calc(var(--pane)/2)),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 4px),
+  repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0 1px,transparent 1px 4px)}
+
+/* ---------- Header ---------- */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(18,23,51,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(238,240,243,.1)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--navy)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.button-mono{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c23a62,var(--rasp-d));box-shadow:inset 0 0 0 3px rgba(0,0,0,.18),inset 0 0 0 4px rgba(255,255,255,.12),0 2px 6px rgba(0,0,0,.4);position:relative;flex:none}
+.button-mono::before{content:"";position:absolute;inset:0;margin:auto;width:14px;height:14px;background:
+  radial-gradient(circle,var(--navy) 1.8px,transparent 2.2px) 0 0/7px 7px}
+.brand b{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:.01em;line-height:1}
+.brand small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk-dim);margin-top:4px}
+.links{display:flex;gap:26px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.links a{text-decoration:none;color:var(--chalk-dim);position:relative;padding-block:4px}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;border-top:2px dashed var(--thread);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.links a:hover{color:var(--chalk)}
+.links a:hover::after{transform:scaleX(1)}
+.nav .btn{padding:11px 16px;font-size:12px}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:640px;border-bottom:1px solid rgba(238,240,243,.1)}
+.hero-cloth{position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-cloth .lines span{position:absolute;background:var(--navy);opacity:.85}
+.hero-cloth .lines .v{top:0;bottom:0;width:3px;transform-origin:top;animation:drawV 1.4s cubic-bezier(.6,0,.2,1) both}
+.hero-cloth .lines .h{left:0;right:0;height:3px;transform-origin:left;animation:drawH 1.4s cubic-bezier(.6,0,.2,1) both}
+@keyframes drawV{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes drawH{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero-copy{position:relative;z-index:2;padding:56px max(20px,env(safe-area-inset-left,0px)) 56px max(32px,calc((100vw - 1240px)/2 + 20px));display:grid;gap:26px;width:100%}
+.hero-copy .mono{color:var(--blush)}
+.hero h1{font-family:var(--display);font-size:clamp(56px,9.2vw,148px);line-height:.86;letter-spacing:-.035em;font-weight:500;color:#fff;text-shadow:0 2px 0 rgba(18,23,51,.25)}
+.hero h1 em{display:block;font-style:italic;font-weight:400;padding-left:.5em;color:var(--chalk)}
+.hero h1 .seam{display:inline-block;border-bottom:4px dashed var(--thread);line-height:.9}
+.hero-lede{max-width:40ch;font-size:19px;color:#fbe8ee}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-photo{position:relative;background:var(--hs) center 20%/cover no-repeat;min-height:560px}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(18,23,51,.55));pointer-events:none}
+.chalk-svg{position:absolute;inset:0;width:100%;height:100%;z-index:2;overflow:visible}
+.chalk-svg path{fill:none;stroke:var(--chalk);stroke-width:1.5;stroke-dasharray:5 5;vector-effect:non-scaling-stroke;opacity:.9}
+.chalk-svg circle{fill:var(--thread)}
+.tag{position:absolute;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk);background:rgba(18,23,51,.82);border:1px dashed rgba(238,240,243,.6);padding:7px 10px;line-height:1.35;max-width:210px;animation:tagIn .6s ease both}
+.tag b{display:block;color:var(--thread);font-weight:600;font-size:10px;letter-spacing:.14em}
+@keyframes tagIn{from{transform:translateY(6px)}to{transform:none}}
+.measure-x{position:absolute;left:0;right:0;top:0;height:26px;z-index:3;background:
+  repeating-linear-gradient(90deg,var(--navy) 0 1px,transparent 1px 10px) bottom/100% 7px no-repeat,
+  repeating-linear-gradient(90deg,var(--navy) 0 1.5px,transparent 1.5px 50px) bottom/100% 14px no-repeat,var(--thread);
+  font-family:var(--mono);font-size:9px;color:var(--navy);display:flex;gap:0;opacity:.95;overflow:hidden}
+.measure-x span{width:50px;flex:none;padding-left:3px;padding-top:1px;font-weight:600}
+
+/* ---------- Marquee ---------- */
+.ribbon{background:var(--chalk);color:var(--navy);overflow:hidden;border-block:1px solid var(--navy)}
+.ribbon-track{display:flex;gap:44px;white-space:nowrap;padding-block:14px;animation:slide 38s linear infinite;width:max-content}
+.ribbon-track span{font-family:var(--display);font-style:italic;font-size:26px;display:flex;align-items:center;gap:44px}
+.ribbon-track span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--rasp)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{padding-block:110px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,40ch);gap:12px 40px;align-items:end;margin-bottom:56px}
+.sec-head .mono{color:var(--thread);grid-column:1/-1}
+.sec-head h2{font-family:var(--display);font-size:clamp(42px,6vw,84px);line-height:.95;letter-spacing:-.03em;font-weight:500}
+.sec-head h2 em{font-weight:400;color:var(--blush)}
+.sec-head p{max-width:44ch;color:var(--chalk-dim);justify-self:end}
+
+/* Process: pattern pieces */
+.pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.piece{position:relative;padding:34px 26px 30px;background:var(--navy-2);clip-path:polygon(0 8%,12% 0,88% 0,100% 8%,100% 100%,62% 100%,50% 94%,38% 100%,0 100%);min-height:330px;display:grid;align-content:start;gap:14px;transition:background .3s ease,transform .3s ease}
+.piece::before{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(238,240,243,.22);clip-path:inherit;pointer-events:none}
+.piece:hover{background:var(--navy-3);transform:translateY(-6px)}
+.piece .n{font-family:var(--display);font-style:italic;font-size:64px;line-height:1;color:var(--rasp)}
+.piece h3{font-family:var(--display);font-size:34px;font-weight:600;letter-spacing:-.01em}
+.piece p{color:var(--chalk-dim);font-size:15.5px}
+.piece .mono{color:var(--thread);font-size:11px}
+.piece .grain{position:absolute;right:22px;top:40px;bottom:60px;width:0;border-left:1px solid rgba(238,240,243,.25)}
+.piece .grain::before,.piece .grain::after{content:"";position:absolute;left:-5px;width:9px;height:9px;border-left:1px solid rgba(238,240,243,.4);border-top:1px solid rgba(238,240,243,.4)}
+.piece .grain::before{top:0;transform:rotate(45deg)}
+.piece .grain::after{bottom:0;transform:rotate(225deg)}
+
+/* Calculator */
+.fitting{background:var(--chalk);color:var(--navy);background-image:repeating-linear-gradient(0deg,rgba(18,23,51,.045) 0 1px,transparent 1px 24px),repeating-linear-gradient(90deg,rgba(18,23,51,.045) 0 1px,transparent 1px 24px)}
+.fitting .sec-head .mono{color:var(--rasp)}
+.fitting .sec-head h2 em{color:var(--rasp)}
+.fitting .sec-head p{color:#4a5170}
+.calc{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+.controls{display:grid;gap:38px}
+.ctrl{display:grid;gap:12px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl label span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4a5170}
+.ctrl label output{font-family:var(--display);font-size:34px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:46px;background:transparent;cursor:ew-resize;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:34px;border-radius:2px;background:
+  repeating-linear-gradient(90deg,var(--navy) 0 1px,transparent 1px 8px) bottom/100% 9px no-repeat,
+  repeating-linear-gradient(90deg,var(--navy) 0 1.5px,transparent 1.5px 40px) bottom/100% 17px no-repeat,
+  linear-gradient(var(--thread),#dcb53c);box-shadow:inset 0 0 0 1px rgba(18,23,51,.35),0 3px 0 rgba(18,23,51,.15)}
+input[type=range]::-moz-range-track{height:34px;border-radius:2px;background:
+  repeating-linear-gradient(90deg,var(--navy) 0 1px,transparent 1px 8px) bottom/100% 9px no-repeat,
+  repeating-linear-gradient(90deg,var(--navy) 0 1.5px,transparent 1.5px 40px) bottom/100% 17px no-repeat,
+  linear-gradient(var(--thread),#dcb53c);box-shadow:inset 0 0 0 1px rgba(18,23,51,.35)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:46px;margin-top:-6px;background:var(--rasp);border-radius:2px;box-shadow:0 0 0 2px var(--chalk),0 4px 10px rgba(18,23,51,.35)}
+input[type=range]::-moz-range-thumb{width:18px;height:46px;background:var(--rasp);border:0;border-radius:2px;box-shadow:0 0 0 2px var(--chalk),0 4px 10px rgba(18,23,51,.35)}
+.terms{display:flex;gap:10px}
+.terms button{font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:10px 18px;background:transparent;border:1.5px dashed var(--navy);color:var(--navy);cursor:pointer;border-radius:2px}
+.terms button[aria-pressed="true"]{background:var(--navy);color:var(--chalk);border-style:solid}
+.ticket{position:relative;background:var(--navy);color:var(--chalk);padding:34px 30px 30px;display:grid;gap:20px;box-shadow:12px 12px 0 var(--rasp)}
+.ticket::before{content:"";position:absolute;top:-1px;left:50%;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;background:var(--chalk);box-shadow:inset 0 0 0 5px var(--chalk),inset 0 0 0 6px rgba(18,23,51,.4)}
+.ticket .mono{color:var(--thread)}
+.ticket .big{font-family:var(--display);font-size:clamp(56px,7vw,92px);line-height:.9;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ticket .big small{font-size:.32em;font-weight:400;font-style:italic;letter-spacing:0;color:var(--chalk-dim)}
+.ticket dl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;margin:0;font-variant-numeric:tabular-nums}
+.ticket dt{color:var(--chalk-dim);font-size:15px}
+.ticket dd{margin:0;font-family:var(--mono);font-size:15px;text-align:right}
+.cut{border-top:2px dashed rgba(238,240,243,.3);padding-top:18px;display:grid;gap:6px}
+.cut b{font-family:var(--display);font-size:28px;font-weight:600;font-style:italic;color:var(--blush)}
+.cut p{color:var(--chalk-dim);font-size:15px}
+.fine{font-size:12px;color:#6a7090;max-width:70ch;margin-top:28px}
+
+/* Swatch book */
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.swatch{background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit;cursor:pointer;display:grid;transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.swatch:hover{transform:rotate(-1.2deg) translateY(-6px)}
+.swatch:nth-child(even):hover{transform:rotate(1.2deg) translateY(-6px)}
+.cloth{height:210px;position:relative;
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%;
+  mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%}
+.label{background:var(--chalk);color:var(--navy);padding:20px 22px 22px;display:grid;gap:8px;margin-top:-4px;position:relative}
+.label::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(18,23,51,.3);pointer-events:none}
+.label .mono{color:var(--rasp);font-size:11px}
+.label h3{font-family:var(--display);font-size:30px;font-weight:600;line-height:1}
+.label p{font-size:15px;color:#454b68}
+.label .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.label .more > div{overflow:hidden}
+.label .more ul{margin:8px 0 0;padding:10px 0 0;list-style:none;border-top:1px solid rgba(18,23,51,.15);display:grid;gap:4px;font-size:14px}
+.label .more li{display:flex;justify-content:space-between;gap:10px}
+.label .more li span{font-family:var(--mono);font-size:12px;color:#454b68;text-transform:uppercase;letter-spacing:.06em}
+.swatch[aria-expanded="true"] .more{grid-template-rows:1fr}
+.label .hint{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#7a809c;text-transform:uppercase}
+.gingham{background:#fff;background-image:linear-gradient(90deg,rgba(168,35,76,.5) 50%,transparent 50%),linear-gradient(rgba(168,35,76,.5) 50%,transparent 50%);background-size:28px 28px}
+.chambray{background:#5f80a8;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.12) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(18,23,51,.18) 0 1px,transparent 1px 3px)}
+.herringbone{background-color:#3a3f52;background-image:
+  linear-gradient(135deg,#545a70 25%,transparent 25%),linear-gradient(225deg,#545a70 25%,transparent 25%),
+  linear-gradient(315deg,#545a70 25%,transparent 25%),linear-gradient(45deg,#545a70 25%,transparent 25%);
+  background-position:-12px 0,-12px 0,0 0,0 0;background-size:24px 24px}
+.pinstripe{background:var(--navy);background-image:repeating-linear-gradient(90deg,transparent 0 17px,rgba(238,240,243,.55) 17px 18px),var(--twill)}
+.houndstooth{background-color:#f1efe9;background-image:
+  repeating-linear-gradient(45deg,transparent 0 5px,#16192b 5px 7px,transparent 7px 10px),
+  repeating-conic-gradient(#16192b 0 25%,transparent 0 50%);background-size:20px 20px,20px 20px}
+.seersucker{background:#f6f8fb;background-image:repeating-linear-gradient(90deg,#9bbbd8 0 9px,transparent 9px 15px),repeating-linear-gradient(0deg,rgba(255,255,255,.35) 0 1px,transparent 1px 4px)}
+
+/* Fittings: garment tags on a rail */
+.rail-wrap{position:relative;overflow-x:auto;padding:40px 0 30px;scrollbar-width:thin}
+.rail{display:flex;gap:26px;width:max-content;padding-inline:4px;position:relative}
+.rail::before{content:"";position:absolute;left:0;right:0;top:-20px;height:6px;background:linear-gradient(#cfd4de,#8a90a6);border-radius:3px}
+.gtag{width:230px;position:relative;background:var(--rasp);color:#fff;padding:52px 20px 22px;clip-path:polygon(18% 0,82% 0,100% 12%,100% 100%,0 100%,0 12%);display:grid;gap:14px;transform-origin:50% -20px;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.gtag:nth-child(3n+2){background:var(--navy-3)}
+.gtag:nth-child(3n){background:var(--chalk);color:var(--navy)}
+.gtag::before{content:"";position:absolute;top:18px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--navy);box-shadow:0 0 0 3px rgba(255,255,255,.5)}
+.gtag:hover{transform:rotate(-3deg)}
+.gtag .play{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center}
+.gtag .play::before{content:"";border-left:13px solid currentColor;border-block:8px solid transparent;margin-left:4px}
+.gtag h3{font-family:var(--display);font-size:25px;line-height:1.05;font-weight:600}
+.gtag .mono{font-size:11px;opacity:.8;display:flex;justify-content:space-between}
+
+/* Trade */
+.trade{position:relative}
+.trade .in{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.panel{background:rgba(18,23,51,.9);padding:44px 40px;display:grid;gap:18px;align-content:start;position:relative}
+.panel::before{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(238,240,243,.25);pointer-events:none}
+.panel.light{background:var(--chalk);color:var(--navy)}
+.panel.light::before{border-color:rgba(18,23,51,.25)}
+.panel .mono{color:var(--thread)}
+.panel.light .mono{color:var(--rasp)}
+.panel h2{font-family:var(--display);font-size:clamp(40px,4.6vw,62px);line-height:.95;letter-spacing:-.03em;font-weight:500}
+.panel h2 em{font-weight:400}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.panel li{display:flex;gap:12px;align-items:baseline}
+.panel li::before{content:"";flex:none;width:14px;border-top:2px dashed var(--thread);transform:translateY(-4px)}
+.panel.light li::before{border-color:var(--rasp)}
+
+/* Care label footer */
+footer{padding-block:90px 70px;display:grid;justify-items:center;gap:30px}
+.carelabel{width:min(460px,100%);background:#f7f5f1;color:#1e2140;padding:30px 30px 26px;position:relative;text-align:center;display:grid;gap:14px;box-shadow:0 30px 60px -30px #000;transform:rotate(-1deg)}
+.carelabel::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(30,33,64,.35);pointer-events:none}
+.carelabel::after{content:"";position:absolute;left:0;right:0;top:-10px;height:12px;background:repeating-linear-gradient(90deg,#f7f5f1 0 6px,transparent 6px 9px)}
+.carelabel .name{font-family:var(--display);font-size:30px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.carelabel .mono{font-size:11px;letter-spacing:.14em;color:#4a4e6c}
+.care{display:flex;justify-content:center;gap:16px;font-family:var(--mono);font-size:10.5px;color:#4a4e6c;flex-wrap:wrap}
+.care span{display:grid;justify-items:center;gap:4px;width:68px;text-transform:uppercase;letter-spacing:.04em;line-height:1.25}
+.care svg{width:28px;height:28px;stroke:#1e2140;fill:none;stroke-width:1.6}
+.contact{font-family:var(--mono);font-size:13px;display:grid;gap:6px;justify-items:center}
+.copy{font:inherit;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:1px dashed #1e2140;color:#1e2140;padding:4px 8px;cursor:pointer;margin-left:6px}
+.legal{font-size:11.5px;line-height:1.55;color:#4a4e6c;font-family:var(--body)}
+.foot-note{font-family:var(--mono);font-size:11px;color:var(--chalk-dim);letter-spacing:.08em;text-transform:uppercase;text-align:center}
+
+/* Tape measure scroll progress */
+.tape{position:fixed;right:0;top:0;bottom:0;width:26px;z-index:30;background:
+  repeating-linear-gradient(0deg,var(--navy) 0 1px,transparent 1px 10px) right/8px 100% no-repeat,
+  repeating-linear-gradient(0deg,var(--navy) 0 1.5px,transparent 1.5px 50px) right/15px 100% no-repeat,var(--thread);
+  box-shadow:-2px 0 8px rgba(0,0,0,.35);padding-right:env(safe-area-inset-right,0px)}
+.tape i{position:absolute;left:-46px;top:0;font-family:var(--mono);font-style:normal;font-size:11px;font-weight:600;background:var(--rasp);color:#fff;padding:4px 7px;border-radius:2px 0 0 2px;transform:translateY(-50%);white-space:nowrap}
+.tape i::after{content:"";position:absolute;right:-26px;top:50%;width:26px;border-top:2px solid var(--rasp)}
+#thread{position:fixed;inset:0;pointer-events:none;z-index:40}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .hero-photo{min-height:520px}
+  .hero-copy{padding-left:max(20px,env(safe-area-inset-left,0px))}
+  .pieces{grid-template-columns:repeat(2,1fr)}
+  .calc,.trade .in{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .links,.tape{display:none}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head p{justify-self:start}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:76px}
+  .pieces,.swatches{grid-template-columns:1fr}
+  .piece{min-height:0}
+  .panel{padding:36px 26px}
+  .tag{font-size:10px;max-width:150px}
+  .nav .btn{display:none}
+  .ticket{box-shadow:8px 8px 0 var(--rasp)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<div class="tape" aria-hidden="true"><i id="inch">0″</i></div>
+<canvas id="thread" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="in nav">
+    <a class="brand" href="#top"><span class="button-mono" aria-hidden="true"></span><span><b>Derek Goulette</b><small>Tailored home loans · Charleston</small></span></a>
+    <nav class="links" aria-label="Main"><a href="#process">The Process</a><a href="#measure">Measure</a><a href="#swatches">Swatch Book</a><a href="#fittings">Fittings</a><a href="#trade">For the Trade</a></nav>
+    <a class="btn btn-rasp" href="#measure">Apply now</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="hero-cloth plaid">
+      <div class="lines" aria-hidden="true" id="lines"></div>
+      <div class="hero-copy">
+        <div class="mono">Est. Daniel Island, SC &nbsp;·&nbsp; Branch 843 &nbsp;·&nbsp; Fairway Home Mortgage</div>
+        <h1>Home loans, <em><span class="seam">cut</span> to fit.</em></h1>
+        <p class="hero-lede">Off-the-rack mortgages fit nobody. Derek measures your life first, then cuts a loan around it, for first homes, island homes, and everything in between.</p>
+        <div class="ctas">
+          <a class="btn btn-rasp" href="#measure">Take your measurements →</a>
+          <a class="btn btn-chalk" href="#footer">Book a fitting</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo" role="img" aria-label="Derek Goulette in his raspberry windowpane jacket on the Lowcountry marsh">
+      <div class="measure-x" aria-hidden="true" id="ruler"></div>
+      <svg class="chalk-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M51 54 L64 54 L72 40" class="draw"/>
+        <path d="M48 65 L60 74 L74 74" class="draw"/>
+        <path d="M26.5 87 L34 93 L46 93" class="draw"/>
+        <path d="M10 69 L10 40 L14 34" class="draw"/>
+      </svg>
+      <div class="tag" style="left:72%;top:34%;animation-delay:1.3s"><b>Lapel</b>Branch Manager</div>
+      <div class="tag" style="left:74%;top:70%;animation-delay:1.5s"><b>Pocket</b>NMLS #325427</div>
+      <div class="tag" style="left:46%;top:89.5%;animation-delay:1.7s"><b>Button</b>115 Fairchild St, Daniel Island</div>
+      <div class="tag" style="left:9%;top:27%;animation-delay:1.9s"><b>Backdrop</b>Lowcountry marsh. Home turf.</div>
+    </div>
+  </div>
+
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbon">
+    <span>First-time buyers</span><span>Island homes</span><span>VA loans</span><span>Jumbo &amp; luxury</span><span>FHA</span><span>Investment properties</span><span>Relocation</span><span>Refinancing</span>
+  </div></div>
+
+  <section id="process">
+    <div class="in">
+      <div class="sec-head">
+        <div class="mono">The process · four fittings, start to keys</div>
+        <h2>Bespoke, <em>not</em> boilerplate.</h2>
+        <p>A good tailor never starts with the fabric. Derek starts with you: your income, your plans, the house you keep scrolling past at midnight.</p>
+      </div>
+      <div class="pieces">
+        <article class="piece"><span class="grain" aria-hidden="true"></span><span class="n">i.</span><h3>Measure</h3><p>A 15-minute call about budget, savings, and what "home" means to you. No forms yet.</p><span class="mono">Day 1</span></article>
+        <article class="piece"><span class="grain" aria-hidden="true"></span><span class="n">ii.</span><h3>Cut</h3><p>We pick the loan program that fits: FHA, VA, conventional, jumbo, or investment.</p><span class="mono">Pick the fabric</span></article>
+        <article class="piece"><span class="grain" aria-hidden="true"></span><span class="n">iii.</span><h3>Fit</h3><p>Pre-approval in hand, so your offer reads like cash to a Charleston listing agent.</p><span class="mono">Make the offer</span></article>
+        <article class="piece"><span class="grain" aria-hidden="true"></span><span class="n">iv.</span><h3>Finish</h3><p>Underwriting, appraisal, closing. Derek's team keeps you and your Realtor posted the whole way.</p><span class="mono">Keys in hand</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="measure" class="fitting">
+    <div class="in">
+      <div class="sec-head">
+        <div class="mono">The fitting room · take your measurements</div>
+        <h2>Pull the tape. <em>See the fit.</em></h2>
+        <p>Drag each tape to your numbers. Your estimated monthly payment and suggested loan cut update as you go.</p>
+      </div>
+      <div class="calc">
+        <div class="controls">
+          <div class="ctrl"><label for="price"><span>Home price</span><output id="o-price">$675,000</output></label><input id="price" type="range" min="250000" max="2000000" step="5000" value="675000"></div>
+          <div class="ctrl"><label for="down"><span>Down payment</span><output id="o-down">20%</output></label><input id="down" type="range" min="0" max="40" step="0.5" value="20"></div>
+          <div class="ctrl"><label for="rate"><span>Example rate</span><output id="o-rate">6.50%</output></label><input id="rate" type="range" min="4" max="9" step="0.125" value="6.5"></div>
+          <div class="ctrl"><label><span>Term</span></label><div class="terms" role="group" aria-label="Loan term"><button type="button" id="t30" aria-pressed="true">30 years</button><button type="button" id="t15" aria-pressed="false">15 years</button></div></div>
+        </div>
+        <div class="ticket" aria-live="polite">
+          <div class="mono">Your fitting ticket · estimate</div>
+          <div class="big" id="pmt">$3,413<small>/mo</small></div>
+          <dl>
+            <dt>Loan amount</dt><dd id="d-loan">$540,000</dd>
+            <dt>Down payment</dt><dd id="d-down">$135,000</dd>
+            <dt>Total interest</dt><dd id="d-int">$688,746</dd>
+          </dl>
+          <div class="cut"><span class="mono">Suggested cut</span><b id="cut-name">Conventional</b><p id="cut-why">20% down means no mortgage insurance. A clean, classic fit.</p></div>
+          <a class="btn btn-rasp" href="#footer" style="justify-self:start">Have Derek check the fit →</a>
+        </div>
+      </div>
+      <p class="fine">For illustration only. Principal and interest only; taxes, insurance, HOA, and mortgage insurance are not included. Rates shown are examples, not a quote or a commitment to lend. Program suggestions are general guidance; eligibility depends on full application and underwriting.</p>
+    </div>
+  </section>
+
+  <section id="swatches">
+    <div class="in">
+      <div class="sec-head">
+        <div class="mono">The swatch book · six loan programs</div>
+        <h2>Choose your <em>fabric.</em></h2>
+        <p>Every loan program has its own weight and drape. Tap a swatch to see who it suits.</p>
+      </div>
+      <div class="swatches" id="book">
+        <button class="swatch" aria-expanded="false"><div class="cloth gingham"></div><div class="label"><span class="mono">Gingham · No. 01</span><h3>First-Time Buyer</h3><p>Friendly, forgiving, made for your first set of keys.</p><div class="more"><div><ul><li><span>Down from</span>3%</li><li><span>Suits</span>Renters ready to own</li><li><span>Pairs with</span>Down-payment help</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+        <button class="swatch" aria-expanded="false"><div class="cloth chambray"></div><div class="label"><span class="mono">Chambray · No. 02</span><h3>FHA</h3><p>Hard-wearing and flexible on credit history.</p><div class="more"><div><ul><li><span>Down from</span>3.5%</li><li><span>Suits</span>Rebuilding credit</li><li><span>Backed by</span>FHA</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+        <button class="swatch" aria-expanded="false"><div class="cloth herringbone"></div><div class="label"><span class="mono">Herringbone · No. 03</span><h3>VA</h3><p>Built for those who served. Joint Base Charleston families, this one's yours.</p><div class="more"><div><ul><li><span>Down from</span>0%</li><li><span>Mortgage ins.</span>None</li><li><span>Suits</span>Veterans &amp; active duty</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+        <button class="swatch" aria-expanded="false"><div class="cloth pinstripe"></div><div class="label"><span class="mono">Pinstripe · No. 04</span><h3>Jumbo &amp; Luxury</h3><p>For Kiawah, Daniel Island, and the waterfront. Sharp lines, bigger numbers.</p><div class="more"><div><ul><li><span>Loan size</span>Above conforming limits</li><li><span>Suits</span>$1M+ homes</li><li><span>Fit</span>Custom structure</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+        <button class="swatch" aria-expanded="false"><div class="cloth houndstooth"></div><div class="label"><span class="mono">Houndstooth · No. 05</span><h3>Investment</h3><p>Rentals and short-term stays, qualified on the property's income.</p><div class="more"><div><ul><li><span>Programs</span>Conventional, DSCR</li><li><span>Suits</span>Investors, entrepreneurs</li><li><span>Fit</span>Cash-flow based</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+        <button class="swatch" aria-expanded="false"><div class="cloth seersucker"></div><div class="label"><span class="mono">Seersucker · No. 06</span><h3>Refinance</h3><p>Charleston's summer classic. Lighter payments, or cash out for the next project.</p><div class="more"><div><ul><li><span>Types</span>Rate-term, cash-out</li><li><span>Suits</span>Current homeowners</li><li><span>Fit</span>Lower rate or equity</li></ul></div></div><span class="hint">Tap to see the fit</span></div></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="fittings" style="padding-top:0">
+    <div class="in">
+      <div class="sec-head">
+        <div class="mono">Fittings · 60-second videos, new every week</div>
+        <h2>Mortgages, <em>off the rack</em> in a minute.</h2>
+        <p>Short, straight answers from Derek on camera. Swipe the rail.</p>
+      </div>
+      <div class="rail-wrap"><div class="rail">
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>How much house can I actually afford?</h3><span class="mono"><span>First-time</span><span>0:58</span></span></article>
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>Zero down with VA, explained</h3><span class="mono"><span>VA loans</span><span>0:54</span></span></article>
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>Why your pre-approval wins the bidding war</h3><span class="mono"><span>Buying</span><span>1:00</span></span></article>
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>Flood zones &amp; insurance in the Lowcountry</h3><span class="mono"><span>Charleston</span><span>0:59</span></span></article>
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>Your first rental property, step by step</h3><span class="mono"><span>Investors</span><span>0:57</span></span></article>
+        <article class="gtag"><span class="play" aria-hidden="true"></span><h3>When does a refinance actually pay off?</h3><span class="mono"><span>Refinance</span><span>0:55</span></span></article>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="trade" class="trade plaid">
+    <div class="in">
+      <div class="panel">
+        <span class="mono">For the trade · Realtor partners</span>
+        <h2>Your buyers, <em>pressed and ready.</em></h2>
+        <p style="color:var(--chalk-dim)">Derek's favorite part of the job is working with agents. Send a buyer and here's what you get:</p>
+        <ul><li>Pre-approvals that make your offers stronger</li><li>Status updates at every milestone, without chasing</li><li>Co-branded videos and posts for your listings</li><li>A direct line to Derek, not a call center</li></ul>
+        <a class="btn btn-rasp" href="#footer" style="justify-self:start">Become a partner</a>
+      </div>
+      <div class="panel light">
+        <span class="mono">The workshop · now hiring</span>
+        <h2>Loan officers, <em>come build with us.</em></h2>
+        <p style="color:#454b68">The Daniel Island branch is growing. Join a team with real marketing behind it and a branch manager who still answers his phone.</p>
+        <ul><li>Marketing and content support done for you</li><li>Fairway's product shelf and operations</li><li>Mentorship from a top Charleston producer</li></ul>
+        <a class="btn" href="#footer" style="justify-self:start;background:var(--navy);color:var(--chalk)">Start the conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="in">
+    <div class="carelabel">
+      <div class="mono">Hand-finished in</div>
+      <div class="name">Derek Goulette</div>
+      <div class="mono">Charleston, South Carolina</div>
+      <div class="care" aria-label="Care instructions">
+        <span><svg viewBox="0 0 28 28"><path d="M4 9h20l-2 13H6z"/><path d="M8 14c2-2 4 2 6 0s4 2 6 0"/></svg>Call anytime</span>
+        <span><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><path d="M10 14l3 3 5-6"/></svg>Pre-approve first</span>
+        <span><svg viewBox="0 0 28 28"><path d="M4 22l10-16 10 16z"/><path d="M14 12v5M14 19.5v.5"/></svg>Do not overpay</span>
+        <span><svg viewBox="0 0 28 28"><rect x="5" y="5" width="18" height="18"/><path d="M5 14h18M14 5v18"/></svg>Pairs with Realtors</span>
+      </div>
+      <div class="contact">
+        <div>Office <span id="phone">949-280-8044</span><button class="copy" data-copy="949-280-8044" type="button">Copy</button></div>
+        <div>derek.goulette@fairwaymc.com</div>
+        <div>115 Fairchild St, Suite 310, Daniel Island, SC 29492</div>
+      </div>
+      <p class="legal">Derek Goulette, Branch Manager, NMLS #325427. Fairway Independent Mortgage Corporation NMLS #2289. Equal Housing Opportunity. This is not a commitment to lend. All loans subject to credit approval.</p>
+    </div>
+    <p class="foot-note">Concept design · Draft for review</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Plaid lines that draw themselves across the hero cloth
+  const lines = document.getElementById('lines');
+  if (lines) {
+    const xs=[18,46,74], ys=[22,58,86];
+    xs.forEach((x,i)=>{const s=document.createElement('span');s.className='v';s.style.left=x+'%';s.style.animationDelay=(i*.15)+'s';lines.appendChild(s);});
+    ys.forEach((y,i)=>{const s=document.createElement('span');s.className='h';s.style.top=y+'%';s.style.animationDelay=(.3+i*.15)+'s';lines.appendChild(s);});
+  }
+
+  // Ruler numbers across the photo
+  const ruler=document.getElementById('ruler');
+  if(ruler){for(let i=0;i<40;i++){const s=document.createElement('span');s.textContent=i*5;ruler.appendChild(s);}}
+
+  // Chalk lines draw in
+  document.querySelectorAll('.chalk-svg .draw').forEach((p,i)=>{
+    const dots=p.getAttribute('d').match(/M([\d.]+) ([\d.]+)/);
+    if(dots){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',dots[1]);c.setAttribute('cy',dots[2]);c.setAttribute('r','0.9');p.parentNode.appendChild(c);}
+    if(!reduce&&p.animate){p.animate([{opacity:0,strokeDashoffset:60},{opacity:.9,strokeDashoffset:0}],{duration:900,delay:1000+i*200,fill:'backwards',easing:'ease-out'});}
+  });
+
+  // Ribbon: duplicate for seamless loop
+  const rib=document.getElementById('ribbon'); if(rib) rib.innerHTML+=rib.innerHTML;
+
+  // Calculator
+  const $=id=>document.getElementById(id);
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  let term=30;
+  function calc(){
+    const price=+$('price').value, dp=+$('down').value, rate=+$('rate').value;
+    const down=price*dp/100, loan=price-down, r=rate/100/12, n=term*12;
+    const pmt = r ? loan*r/(1-Math.pow(1+r,-n)) : loan/n;
+    $('o-price').textContent=money(price);
+    $('o-down').textContent=(dp%1?dp.toFixed(1):dp)+'%';
+    $('o-rate').textContent=rate.toFixed(rate*1000%10?3:2).replace(/0$/,'')+'%';
+    $('pmt').innerHTML=money(pmt)+'<small>/mo</small>';
+    $('d-loan').textContent=money(loan);
+    $('d-down').textContent=money(down);
+    $('d-int').textContent=money(pmt*n-loan);
+    let name,why;
+    if(dp<3){name='VA';why='Little or nothing down usually points to VA, if you or your spouse served.';}
+    else if(dp<5){name='FHA or First-Time';why='Low down payment, flexible credit. Ask Derek about down-payment assistance too.';}
+    else if(loan>800000){name='Jumbo';why='A loan this size is likely above conforming limits. Pinstripe territory.';}
+    else if(dp<20){name='Conventional + PMI';why='Under 20% down adds mortgage insurance, which you can remove as equity builds.';}
+    else {name='Conventional';why='20% or more down means no mortgage insurance. A clean, classic fit.';}
+    $('cut-name').textContent=name; $('cut-why').textContent=why;
+  }
+  ['price','down','rate'].forEach(id=>$(id).addEventListener('input',calc));
+  [['t30',30],['t15',15]].forEach(([id,t])=>$(id).addEventListener('click',()=>{term=t;$('t30').setAttribute('aria-pressed',t===30);$('t15').setAttribute('aria-pressed',t===15);calc();}));
+  calc();
+
+  // Swatch book
+  document.querySelectorAll('.swatch').forEach(b=>b.addEventListener('click',()=>{
+    const open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded',!open);
+    b.querySelector('.hint').textContent=open?'Tap to see the fit':'Tap to fold';
+  }));
+
+  // Copy phone
+  document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
+    const t=btn.dataset.copy;
+    const done=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy',1600);};
+    try{navigator.clipboard.writeText(t).then(done,()=>{selectText();});}catch(e){selectText();}
+    function selectText(){const r=document.createRange();r.selectNodeContents($('phone'));const s=getSelection();s.removeAllRanges();s.addRange(r);}
+  }));
+
+  // Tape measure scroll progress (inches)
+  const inch=$('inch');
+  function onScroll(){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    const p=max>0?scrollY/max:0;
+    inch.style.top=(8+p*(innerHeight-16))+'px';
+    inch.textContent=Math.round(p*60)+'″';
+  }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+
+  // Needle-and-thread cursor trail
+  const cv=$('thread');
+  if(!reduce && matchMedia('(pointer:fine)').matches && cv.getContext){
+    const ctx=cv.getContext('2d'); let pts=[]; let dpr=Math.min(devicePixelRatio||1,2);
+    function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);}
+    size(); addEventListener('resize',size);
+    addEventListener('pointermove',e=>{pts.push({x:e.clientX,y:e.clientY,t:performance.now()});if(pts.length>60)pts.shift();},{passive:true});
+    (function loop(){
+      const now=performance.now(); pts=pts.filter(p=>now-p.t<650);
+      ctx.clearRect(0,0,innerWidth,innerHeight);
+      if(pts.length>2){
+        ctx.lineCap='round'; ctx.setLineDash([7,6]); ctx.lineDashOffset=-now/40;
+        for(let i=1;i<pts.length;i++){
+          const a=pts[i-1],b=pts[i],life=1-(now-b.t)/650;
+          ctx.strokeStyle='rgba(233,195,74,'+(life*.9)+')'; ctx.lineWidth=2;
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
