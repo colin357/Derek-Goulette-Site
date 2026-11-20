@@ -6,10 +6,10 @@ Static marketing site for Derek Goulette, Branch Manager at Fairway Home Mortgag
 
 ```
 site/                 ← deploy this folder (plain HTML/CSS/JS, no build needed to host)
-  index.html, loans.html, calculator.html, watch.html,
+  index.html, loans.html, calculator.html,
   realtors.html, careers.html, about.html, contact.html, 404.html
   assets/css/site.css   design system
-  assets/js/site.js     config + interactions (calculator, forms, nav, filters)
+  assets/js/site.js     config + interactions (calculator, forms, nav, hero scroll)
   assets/img/           photos and social share image
   sitemap.xml, robots.txt
 src/
@@ -34,7 +34,6 @@ concepts/             earlier design explorations (not deployed)
 | Fairway document upload URL | `SITE.uploadUrl` in `site.js` |
 | Form endpoint (CRM webhook) — forms show a "not connected" notice until set | `SITE.formEndpoint` in `site.js` |
 | Final domain (canonical URLs, sitemap, social tags) | `DOMAIN` in `build.py`, then rebuild |
-| Real video links per episode (currently all point to Instagram) | `src/pages/watch.html`, `src/pages/index.html` |
 | Derek's bio details and any stats/reviews | `src/pages/about.html`, `src/pages/index.html` |
 | States licensed in, and any disclosures Fairway requires | `src/layout.html` footer |
 | Fairway marketing/compliance approval of copy and brand colors | — |

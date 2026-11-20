@@ -174,51 +174,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .prog:hover .k,.prog:hover p,.prog:hover .dn{color:#fff}
 .prog:hover .ar{transform:translateX(6px)}
 
-/* ---------- Watch ---------- */
-.watch{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);border:1px solid var(--line)}
-.player{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:#000;display:block;text-decoration:none}
-.player img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.player:hover img{transform:scale(1.04)}
-.player::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,20,41,.92),rgba(15,20,41,.1) 60%)}
-.player .pl{position:absolute;z-index:2;left:32px;bottom:30px;right:32px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
-.player h3{font-stretch:62%;font-weight:800;font-size:clamp(32px,4vw,60px);line-height:.9;text-transform:uppercase;max-width:10em}
-.player .meta{position:absolute;z-index:2;left:32px;top:28px;color:var(--mist)}
-.play{width:76px;height:76px;flex:none;border-radius:50%;background:var(--rasp);display:grid;place-items:center;transition:transform .3s}
-.play::before{content:"";border-left:20px solid #fff;border-block:12px solid transparent;margin-left:6px}
-.player:hover .play{transform:scale(1.08)}
-.eps{display:grid;align-content:start}
-.ep{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:22px 26px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .25s}
-.ep:hover{background:rgba(255,255,255,.05)}
-.ep:last-child{border-bottom:0}
-.ep .k{color:var(--rasp-2);font-weight:700;font-variant-numeric:tabular-nums}
-.ep b{font-weight:600;font-size:17px}
-.ep small{display:block;color:var(--mist);font-size:13px;margin-top:2px}
-.ep .t{color:var(--mist);font-size:13px;font-variant-numeric:tabular-nums}
-
-/* Episode cards (watch page) */
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-.filters button{background:transparent;border:1px solid var(--line);color:var(--mist);padding:10px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .2s}
-.filters button:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-.filters button[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff}
-.episodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.ecard{text-decoration:none;display:grid;gap:14px}
-.ecard[hidden]{display:none}
-.thumb{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--navy-3);display:flex;flex-direction:column;justify-content:space-between;padding:18px 20px;isolation:isolate}
-.thumb.rs{background:var(--rasp)}
-.thumb.pp{background:var(--paper);color:var(--navy)}
-.thumb::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),rgba(255,255,255,.12) calc(25% - 1px) 25%),repeating-linear-gradient(0deg,transparent 0 calc(33.33% - 1px),rgba(255,255,255,.1) calc(33.33% - 1px) 33.33%)}
-.thumb.pp::before{background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),rgba(168,33,75,.18) calc(25% - 1px) 25%),repeating-linear-gradient(0deg,transparent 0 calc(33.33% - 1px),rgba(168,33,75,.14) calc(33.33% - 1px) 33.33%)}
-.thumb .ep-n{font-stretch:62%;font-weight:900;font-size:clamp(64px,7vw,104px);line-height:.8;text-transform:uppercase;transition:transform .4s}
-.thumb .row{display:flex;justify-content:space-between;align-items:center}
-.thumb .row .meta{font-size:10.5px}
-.thumb .mini{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;transition:background .25s}
-.thumb.pp .mini{background:var(--rasp)}
-.thumb .mini::before{content:"";border-left:12px solid #fff;border-block:7px solid transparent;margin-left:3px}
-.ecard:hover .thumb .ep-n{transform:translateX(6px)}
-.ecard:hover .mini{background:var(--rasp-2)}
-.ecard h3{font-weight:600;font-size:19px;line-height:1.25}
-.ecard p{color:var(--mist);font-size:14px}
-
 /* ---------- Split (paper) ---------- */
 .split .wrap{display:grid;grid-template-columns:1fr 1fr}
 .half{padding:104px 56px 104px 0;display:grid;gap:24px;align-content:start}
@@ -384,6 +339,25 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
 .ehl{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:600}
 .ehl svg{width:22px;height:22px}
 
+/* ---------- Instagram panel ---------- */
+.ig .wrap{position:relative;z-index:2}
+.ig-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px;align-items:center}
+.ig-copy{display:grid;gap:26px}
+.ig-copy h2{font-size:clamp(40px,10.5vw,120px);overflow-wrap:anywhere}
+.ig-card{display:grid;gap:22px;background:#fff;color:var(--ink);padding:32px;text-decoration:none;box-shadow:18px 18px 0 var(--rasp);transition:transform .3s ease,box-shadow .3s ease}
+.ig-card:hover{transform:translate(-4px,-4px);box-shadow:22px 22px 0 var(--rasp-2)}
+.ig-top{display:flex;align-items:center;gap:16px}
+.ig-ring{width:76px;height:76px;flex:none;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,var(--rasp),var(--rasp-2),#f2b8c9,var(--rasp))}
+.ig-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid #fff}
+.ig-id{display:grid;gap:2px;min-width:0}
+.ig-id b{font-weight:700;font-size:19px;overflow-wrap:anywhere}
+.ig-id span{color:var(--ink-soft);font-size:14px}
+.ig-glyph{width:28px;height:28px;margin-left:auto;color:var(--rasp);flex:none}
+.ig-bio{color:var(--ink-mute);font-size:15px;line-height:1.6}
+.ig-follow{display:block;text-align:center;background:var(--rasp);color:#fff;padding:13px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:background .25s}
+.ig-card:hover .ig-follow{background:var(--rasp-2)}
+@media (max-width:920px){.ig-grid{grid-template-columns:minmax(0,1fr)}.ig-card{max-width:440px;margin-right:12px;box-shadow:12px 12px 0 var(--rasp)}}
+
 /* ---------- Reveal (content visible at rest; only nudges in) ---------- */
 @media (prefers-reduced-motion:no-preference){
   .reveal{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -405,7 +379,7 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
 @media (max-width:920px){
   .main-nav,.hdr-acts .btn{display:none}
   .menu-btn{display:block}
-  .hero .wrap,.phero.has-photo .wrap,.split .wrap,.watch,.about,.contact-grid,.pd,.cta .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap,.phero.has-photo .wrap,.split .wrap,.about,.contact-grid,.pd,.cta .wrap{grid-template-columns:minmax(0,1fr)}
   .hero h1{margin-right:0}
   .hero-photo,.phero.has-photo .ph{min-height:520px;margin-left:calc(-1 * var(--gut))}
   .hero-photo::after,.phero.has-photo .ph::after{background:linear-gradient(0deg,rgba(15,20,41,.7),transparent 40%)}
@@ -413,7 +387,6 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
   .phero .lede{justify-self:start}
   .half,.half + .half{padding:72px 0;border-left:0}
   .half + .half{border-top:1px solid var(--line-ink)}
-  .episodes{grid-template-columns:repeat(2,minmax(0,1fr))}
   .feats{grid-template-columns:minmax(0,1fr)}
   .feat,.feat + .feat{padding:28px 0;border-left:0}
   .feat + .feat{border-top:1px solid var(--line)}
@@ -427,7 +400,6 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
   .sec{padding-block:80px}
   .prog{grid-template-columns:36px minmax(0,1fr) 24px;gap:16px}
   .prog .dn{display:none}
-  .episodes{grid-template-columns:minmax(0,1fr)}
   .form{grid-template-columns:minmax(0,1fr)}
   .kv{grid-template-columns:minmax(0,1fr)}
   .kv div + div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
@@ -435,9 +407,6 @@ tbody tr:hover{background:rgba(168,33,75,.05)}
   .stats{grid-template-columns:minmax(0,1fr)}
   .stats div + div{padding-left:0;border-left:0}
   .fcols{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .player .pl{left:20px;right:20px;bottom:20px}
-  .player .meta{display:none}
-  .play{width:56px;height:56px}
   .credit b{font-size:24px}
   .mobile-nav a{font-size:40px}
 }

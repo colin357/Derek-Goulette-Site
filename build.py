@@ -17,7 +17,6 @@ DOMAIN = "https://derekgoulette.com"  # update once the domain is confirmed
 NAV = [
     ("loans.html", "Loans", "loans"),
     ("calculator.html", "Calculator", "calculator"),
-    ("watch.html", "Watch", "watch"),
     ("realtors.html", "Realtors", "realtors"),
     ("careers.html", "Careers", "careers"),
     ("about.html", "About", "about"),

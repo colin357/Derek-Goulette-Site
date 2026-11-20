@@ -134,16 +134,6 @@ const SITE = {
       '<text x="' + (x(end[0]) - 10) + '" y="' + (y(end[1]) - 10) + '" text-anchor="end" style="fill:#fff;font-weight:700;font-size:11px">' + compact(end[1]) + " INTEREST</text></svg>";
   }
 
-  /* ---------- Episode filters ---------- */
-  const fbar = $("[data-filters]");
-  if (fbar) {
-    $$("button", fbar).forEach((b) => b.addEventListener("click", () => {
-      const f = b.dataset.f;
-      $$("button", fbar).forEach((x) => x.setAttribute("aria-pressed", x === b));
-      $$("[data-cat]").forEach((c) => (c.hidden = f !== "all" && c.dataset.cat !== f));
-    }));
-  }
-
   /* ---------- Forms ---------- */
   $$("form[data-form]").forEach((form) => {
     const status = $(".form-status", form);
