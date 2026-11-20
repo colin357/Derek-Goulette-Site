@@ -47,6 +47,21 @@ const SITE = {
     addEventListener("resize", () => { if (innerWidth > 920) set(false); });
   }
 
+  /* ---------- Hero scroll effect ---------- */
+  const hero = $(".hero");
+  if (hero && !reduce) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const h = hero.offsetHeight || 1;
+      const sp = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / h));
+      hero.style.setProperty("--sp", sp.toFixed(4));
+    };
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener("resize", update);
+    update();
+  }
+
   /* ---------- Ticker: duplicate for a seamless loop ---------- */
   $$(".ticker-track").forEach((t) => (t.innerHTML += t.innerHTML));
 
