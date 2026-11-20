@@ -5,14 +5,14 @@
   /* Palette: Marsh & Brass. Every color on the site comes from these tokens.
      Swap the values here to re-color the whole site. */
   --bg:#0e1c16; --bg-2:#13251d; --bg-3:#1b3127; --bg-rgb:14 28 22;   /* dark surfaces */
-  --fg:#fff; --mist:#cdd8cf; --mist-2:#8ea295;                     /* text on dark */
+  --fg:#fff; --fg-rgb:255 255 255; --mist:#cdd8cf; --mist-2:#8ea295;                     /* text on dark */
   --accent:#b8913f; --accent-2:#d3ad5c; --accent-deep:#94742f;     /* brand accent */
   --accent-rgb:184 145 63; --accent-2-rgb:211 173 92;
   --on-accent:#0e1c16;                                                /* text on accent */
   --accent-paper:#8a6a25;                                          /* accent on light sections */
   --paper:#f1f1ec; --paper-2:#e5e5dd;                              /* light sections */
-  --ink:#0e1c16; --ink-mute:#47574d; --ink-soft:#66766c;           /* text on light */
-  --line:rgb(255 255 255 / .14); --line-ink:rgb(var(--bg-rgb) / .15);
+  --ink:#0e1c16; --ink-rgb:14 28 22; --ink-mute:#47574d; --ink-soft:#66766c;           /* text on light */
+  --line:rgb(var(--fg-rgb) / .14); --line-ink:rgb(var(--ink-rgb) / .15);
   --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --wrap:1320px;
   --gut:max(24px,env(safe-area-inset-left,0px));
@@ -65,9 +65,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn:hover{background:var(--accent-2)}
 .btn .arr{transition:transform .25s}
 .btn:hover .arr{transform:translateX(4px)}
-.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px rgb(255 255 255 / .4)}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px rgb(var(--fg-rgb) / .4)}
 .btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--fg)}
-.paper .btn.ghost{box-shadow:inset 0 0 0 1px rgb(var(--bg-rgb) / .4);color:var(--ink)}
+.paper .btn.ghost{box-shadow:inset 0 0 0 1px rgb(var(--ink-rgb) / .4);color:var(--ink)}
 .paper .btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 .btn.navy{background:var(--bg);color:var(--fg)}
 .btn.navy:hover{background:var(--bg-3)}
@@ -200,8 +200,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .field label,.field .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mist)}
 .field output{font-stretch:62%;font-weight:800;font-size:30px;letter-spacing:0;color:var(--fg);font-variant-numeric:tabular-nums;text-transform:none}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer;margin:0}
-input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--accent-2) var(--p,50%),rgb(255 255 255 / .2) var(--p,50%))}
-input[type=range]::-moz-range-track{height:2px;background:rgb(255 255 255 / .2)}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--accent-2) var(--p,50%),rgb(var(--fg-rgb) / .2) var(--p,50%))}
+input[type=range]::-moz-range-track{height:2px;background:rgb(var(--fg-rgb) / .2)}
 input[type=range]::-moz-range-progress{height:2px;background:var(--accent-2)}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-9px;background:var(--fg);border:4px solid var(--accent);border-radius:50%;transition:transform .15s}
 input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--fg);border:4px solid var(--accent);border-radius:50%}
@@ -240,7 +240,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.2)}
 /* ---------- Neighborhood type wall ---------- */
 .hoods{overflow-wrap:break-word;max-width:100%;font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:clamp(34px,5vw,76px);line-height:1.02;letter-spacing:-.005em}
 .hoods{text-wrap:pretty}
-.hoods span{white-space:nowrap;color:rgb(255 255 255 / .28);transition:color .25s}
+.hoods span{white-space:nowrap;color:rgb(var(--fg-rgb) / .28);transition:color .25s}
 .hoods span:hover{color:var(--fg)}
 .hoods i{font-style:normal;color:var(--accent-2);margin-left:.16em}
 
@@ -248,7 +248,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.2)}
 .cta{position:relative;overflow:hidden}
 .cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end;padding-block:110px}
 .cta h2{font-size:clamp(60px,9vw,150px)}
-.cta .pane{background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),rgb(var(--bg-rgb) / .28) calc(100%/6 - 1px) calc(100%/6)),repeating-linear-gradient(0deg,transparent 0 179px,rgb(var(--bg-rgb) / .2) 179px 180px)}
+.cta .pane{background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),rgb(var(--ink-rgb) / .28) calc(100%/6 - 1px) calc(100%/6)),repeating-linear-gradient(0deg,transparent 0 179px,rgb(var(--ink-rgb) / .2) 179px 180px)}
 
 /* ---------- Features grid ---------- */
 .feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
@@ -303,8 +303,8 @@ tbody tr:hover{background:rgb(var(--accent-rgb) / .05)}
 .form .full{grid-column:1/-1}
 .form label{display:grid;gap:8px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mist)}
 .paper .form label{color:var(--ink-soft)}
-.form input,.form select,.form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgb(255 255 255 / .3);padding:12px 0;font-size:18px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--fg);border-radius:0;transition:border-color .2s}
-.paper .form input,.paper .form select,.paper .form textarea{border-color:rgb(var(--bg-rgb) / .3);color:var(--ink)}
+.form input,.form select,.form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgb(var(--fg-rgb) / .3);padding:12px 0;font-size:18px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--fg);border-radius:0;transition:border-color .2s}
+.paper .form input,.paper .form select,.paper .form textarea{border-color:rgb(var(--ink-rgb) / .3);color:var(--ink)}
 .form select{appearance:none;-webkit-appearance:none;background:linear-gradient(45deg,transparent 50%,currentColor 50%) right 6px center/6px 6px no-repeat,linear-gradient(-45deg,transparent 50%,currentColor 50%) right 0 center/6px 6px no-repeat}
 .form select option{color:var(--ink)}
 .form textarea{min-height:110px;resize:vertical}
@@ -314,8 +314,8 @@ tbody tr:hover{background:rgb(var(--accent-rgb) / .05)}
 .paper .form .consent{color:var(--ink-soft)}
 .form .consent input{width:auto;margin-top:3px;accent-color:var(--accent-paper)}
 .form .btn{justify-self:start}
-.form-status{grid-column:1/-1;font-size:15px;padding:16px 18px;border-left:3px solid var(--accent-2);background:rgb(255 255 255 / .05)}
-.paper .form-status{background:rgb(var(--bg-rgb) / .05);border-color:var(--accent-paper)}
+.form-status{grid-column:1/-1;font-size:15px;padding:16px 18px;border-left:3px solid var(--accent-2);background:rgb(var(--fg-rgb) / .05)}
+.paper .form-status{background:rgb(var(--ink-rgb) / .05);border-color:var(--accent-paper)}
 .form-status[hidden]{display:none}
 
 /* ---------- Contact ---------- */

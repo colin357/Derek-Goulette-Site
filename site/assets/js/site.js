@@ -128,7 +128,7 @@ const SITE = {
     const bal_c = c("--accent-2"), eq_c = c("--mist"), fg_c = c("--fg");
     el.innerHTML =
       '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Loan balance falls to zero over ' + term + " years while your home equity grows to " + money(price) + '">' +
-      ticks.map((v) => '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="rgb(255 255 255 / .09)"/><text x="' + (pl - 8) + '" y="' + (y(v) + 3) + '" text-anchor="end">' + compact(v) + "</text>").join("") +
+      ticks.map((v) => '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="rgb(' + c("--fg-rgb") + ' / .09)"/><text x="' + (pl - 8) + '" y="' + (y(v) + 3) + '" text-anchor="end">' + compact(v) + "</text>").join("") +
       xt.map((v) => '<text x="' + x(v) + '" y="' + (H - 4) + '" text-anchor="middle">' + (v ? v + "Y" : "") + "</text>").join("") +
       '<path d="' + path(B) + " L" + x(term) + " " + y(0) + " L" + x(0) + " " + y(0) + 'Z" fill="' + bal_c + '" fill-opacity=".14"/>' +
       '<path d="' + path(B) + '" fill="none" stroke="' + bal_c + '" stroke-width="2.5"/>' +
