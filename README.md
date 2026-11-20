@@ -30,7 +30,6 @@ concepts/             earlier design explorations (not deployed)
 
 | Item | Where |
 | --- | --- |
-| Fairway online application URL | `SITE.applyUrl` in `site.js` |
 | Fairway document upload URL | `SITE.uploadUrl` in `site.js` |
 | Form endpoint (CRM webhook) — forms show a "not connected" notice until set | `SITE.formEndpoint` in `site.js` |
 | Final domain (canonical URLs, sitemap, social tags) | `DOMAIN` in `build.py`, then rebuild |

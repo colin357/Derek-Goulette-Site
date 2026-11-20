@@ -4,7 +4,7 @@
 const SITE = {
   // Derek's Fairway online application and document upload links.
   // Leave empty until confirmed; buttons fall back to the contact page.
-  applyUrl: "",
+  applyUrl: "https://fairway.tidalwave.ai/signup/derek.goulette/D7F9279EP7NEQ1C2BTKG",
   uploadUrl: "",
   // Where the site's forms POST (e.g. a CRM webhook). Leave empty to show
   // a "not connected yet" notice instead of pretending to send.
